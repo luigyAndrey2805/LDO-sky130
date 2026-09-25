@@ -1,0 +1,111 @@
+** Netlist OTA_tb para caracterización (.OP y AC)
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.param VDD = 1.8
+.param VCM = 1.2
+.param VAC = 1
+
+* Instancia de la OTA
+x1 net1 vo vin vip net2 0 OTA
+
+* Fuentes y elementos pasivos
+V1 net1 0 {VDD}
+I0 net1 net2 10u
+V2 net3 0 {VCM}
+V3 vip net3 ac {VAC}
+L4 vo vin 1Meg
+C1 vin 0 1
+
+.control
+set filetype=ascii
+
+save all
+* PMOS
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vdsat]
+
+* NMOS
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vdsat]
+
+op
+write OTA_op.raw all
+
+ac dec 10 1 1G
+write OTA_ac.raw all
+
+quit
+.endc
+
+* Subcircuito de la OTA
+.subckt OTA VDD VO_ota VIN_ota VIP_ota Iref VSS
+xMnr net1 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=7 nf=1 ad='int(nf/2+0.5)*0.29*7' as='int(nf/2)*0.29*7' pd='2*int(nf/2+0.5)*0.29+2*7' ps='2*int(nf/2)*0.29+2*7' n3d=0 m=1
+xMpr net2 net1 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=7 nf=1 ad='int(nf/2+0.5)*0.29*7' as='int(nf/2)*0.29*7' pd='2*int(nf/2+0.5)*0.29+2*7' ps='2*int(nf/2)*0.29+2*7' n3d=0 m=1
+xMo VO_ota net2 VDD VDD sky130_fd_pr__pfet_01v8 L=1 W=7 nf=1 ad='int(nf/2+0.5)*0.29*7' as='int(nf/2)*0.29*7' pd='2*int(nf/2+0.5)*0.29+2*7' ps='2*int(nf/2)*0.29+2*7' n3d=0 m=1
+
+xMn net1 VIN_ota net3 VSS sky130_fd_pr__nfet_01v8 L=1 W=3.5 nf=1 ad='int(nf/2+0.5)*0.29*3.5' as='int(nf/2)*0.29*3.5' pd='2*int(nf/2+0.5)*0.29+2*3.5' ps='2*int(nf/2)*0.29+2*3.5' n3d=0 m=1
+xMp net2 VIP_ota net3 VSS sky130_fd_pr__nfet_01v8 L=1 W=3.5 nf=1 ad='int(nf/2+0.5)*0.29*3.5' as='int(nf/2)*0.29*3.5' pd='2*int(nf/2)*0.29+2*3.5' ps='2*int(nf/2)*0.29+2*3.5' n3d=0 m=1
+
+xMr Iref Iref VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=3.5 nf=1 ad='int(nf/2+0.5)*0.29*3.5' as='int(nf/2)*0.29*3.5' pd='2*int(nf/2+0.5)*0.29+2*3.5' ps='2*int(nf/2)*0.29+2*3.5' n3d=0 m=1
+xMrc1 net3 Iref VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=3.5 nf=1 ad='int(nf/2+0.5)*0.29*3.5' as='int(nf/2)*0.29*3.5' pd='2*int(nf/2+0.5)*0.29+2*3.5' ps='2*int(nf/2)*0.29+2*3.5' n3d=0 m=1
+xMc2 VO_ota Iref VSS VSS sky130_fd_pr__nfet_01v8 L=1 W=3.5 nf=1 ad='int(nf/2+0.5)*0.29*3.5' as='int(nf/2)*0.29*3.5' pd='2*int(nf/2+0.5)*0.29+2*3.5' ps='2*int(nf/2)*0.29+2*3.5' n3d=0 m=1
+.ends
+.end

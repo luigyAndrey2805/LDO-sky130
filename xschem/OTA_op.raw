@@ -1,0 +1,196 @@
+Title: ** netlist ota_tb para caracterización (.op y ac)
+Date: Fri Sep 25 23:13:14  2026
+Command: ngspice-46, Build Thu Apr 16 19:53:00 UTC 2026
+Plotname: Operating Point
+Flags: real
+No. Variables: 93
+No. Points: 1
+Variables:
+	0	v(x1.net1)	voltage
+	1	@m.x1.xmc2.msky130_fd_pr__nfet_01v8[gds]	admittance
+	2	@m.x1.xmc2.msky130_fd_pr__nfet_01v8[gm]	admittance
+	3	i(@m.x1.xmc2.msky130_fd_pr__nfet_01v8[id])	current
+	4	v(@m.x1.xmc2.msky130_fd_pr__nfet_01v8[vds])	voltage
+	5	v(@m.x1.xmc2.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	6	v(@m.x1.xmc2.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	7	v(@m.x1.xmc2.msky130_fd_pr__nfet_01v8[vth])	voltage
+	8	@m.x1.xmn.msky130_fd_pr__nfet_01v8[gds]	admittance
+	9	@m.x1.xmn.msky130_fd_pr__nfet_01v8[gm]	admittance
+	10	i(@m.x1.xmn.msky130_fd_pr__nfet_01v8[id])	current
+	11	v(@m.x1.xmn.msky130_fd_pr__nfet_01v8[vds])	voltage
+	12	v(@m.x1.xmn.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	13	v(@m.x1.xmn.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	14	v(@m.x1.xmn.msky130_fd_pr__nfet_01v8[vth])	voltage
+	15	@m.x1.xmnr.msky130_fd_pr__pfet_01v8[gds]	admittance
+	16	@m.x1.xmnr.msky130_fd_pr__pfet_01v8[gm]	admittance
+	17	i(@m.x1.xmnr.msky130_fd_pr__pfet_01v8[id])	current
+	18	v(@m.x1.xmnr.msky130_fd_pr__pfet_01v8[vds])	voltage
+	19	v(@m.x1.xmnr.msky130_fd_pr__pfet_01v8[vdsat])	voltage
+	20	v(@m.x1.xmnr.msky130_fd_pr__pfet_01v8[vgs])	voltage
+	21	v(@m.x1.xmnr.msky130_fd_pr__pfet_01v8[vth])	voltage
+	22	@m.x1.xmo.msky130_fd_pr__pfet_01v8[gds]	admittance
+	23	@m.x1.xmo.msky130_fd_pr__pfet_01v8[gm]	admittance
+	24	i(@m.x1.xmo.msky130_fd_pr__pfet_01v8[id])	current
+	25	v(@m.x1.xmo.msky130_fd_pr__pfet_01v8[vds])	voltage
+	26	v(@m.x1.xmo.msky130_fd_pr__pfet_01v8[vdsat])	voltage
+	27	v(@m.x1.xmo.msky130_fd_pr__pfet_01v8[vgs])	voltage
+	28	v(@m.x1.xmo.msky130_fd_pr__pfet_01v8[vth])	voltage
+	29	@m.x1.xmp.msky130_fd_pr__nfet_01v8[gds]	admittance
+	30	@m.x1.xmp.msky130_fd_pr__nfet_01v8[gm]	admittance
+	31	i(@m.x1.xmp.msky130_fd_pr__nfet_01v8[id])	current
+	32	v(@m.x1.xmp.msky130_fd_pr__nfet_01v8[vds])	voltage
+	33	v(@m.x1.xmp.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	34	v(@m.x1.xmp.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	35	v(@m.x1.xmp.msky130_fd_pr__nfet_01v8[vth])	voltage
+	36	@m.x1.xmpr.msky130_fd_pr__pfet_01v8[gds]	admittance
+	37	@m.x1.xmpr.msky130_fd_pr__pfet_01v8[gm]	admittance
+	38	i(@m.x1.xmpr.msky130_fd_pr__pfet_01v8[id])	current
+	39	v(@m.x1.xmpr.msky130_fd_pr__pfet_01v8[vds])	voltage
+	40	v(@m.x1.xmpr.msky130_fd_pr__pfet_01v8[vdsat])	voltage
+	41	v(@m.x1.xmpr.msky130_fd_pr__pfet_01v8[vgs])	voltage
+	42	v(@m.x1.xmpr.msky130_fd_pr__pfet_01v8[vth])	voltage
+	43	@m.x1.xmr.msky130_fd_pr__nfet_01v8[gds]	admittance
+	44	@m.x1.xmr.msky130_fd_pr__nfet_01v8[gm]	admittance
+	45	i(@m.x1.xmr.msky130_fd_pr__nfet_01v8[id])	current
+	46	v(@m.x1.xmr.msky130_fd_pr__nfet_01v8[vds])	voltage
+	47	v(@m.x1.xmr.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	48	v(@m.x1.xmr.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	49	v(@m.x1.xmr.msky130_fd_pr__nfet_01v8[vth])	voltage
+	50	@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[gds]	admittance
+	51	@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[gm]	admittance
+	52	i(@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[id])	current
+	53	v(@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[vds])	voltage
+	54	v(@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	55	v(@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	56	v(@m.x1.xmrc1.msky130_fd_pr__nfet_01v8[vth])	voltage
+	57	i(l4)	current
+	58	v(m.x1.xmc2.msky130_fd_pr__nfet_01v8#body)	voltage
+	59	v(m.x1.xmc2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	60	v(m.x1.xmc2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	61	v(m.x1.xmn.msky130_fd_pr__nfet_01v8#body)	voltage
+	62	v(m.x1.xmn.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	63	v(m.x1.xmn.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	64	v(m.x1.xmnr.msky130_fd_pr__pfet_01v8#body)	voltage
+	65	v(m.x1.xmnr.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	66	v(m.x1.xmnr.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	67	v(m.x1.xmo.msky130_fd_pr__pfet_01v8#body)	voltage
+	68	v(m.x1.xmo.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	69	v(m.x1.xmo.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	70	v(m.x1.xmp.msky130_fd_pr__nfet_01v8#body)	voltage
+	71	v(m.x1.xmp.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	72	v(m.x1.xmp.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	73	v(m.x1.xmpr.msky130_fd_pr__pfet_01v8#body)	voltage
+	74	v(m.x1.xmpr.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	75	v(m.x1.xmpr.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	76	v(m.x1.xmr.msky130_fd_pr__nfet_01v8#body)	voltage
+	77	v(m.x1.xmr.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	78	v(m.x1.xmr.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	79	v(m.x1.xmrc1.msky130_fd_pr__nfet_01v8#body)	voltage
+	80	v(m.x1.xmrc1.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	81	v(m.x1.xmrc1.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	82	v(net1)	voltage
+	83	v(net2)	voltage
+	84	v(net3)	voltage
+	85	i(v1)	current
+	86	i(v2)	current
+	87	i(v3)	current
+	88	v(vin)	voltage
+	89	v(vip)	voltage
+	90	v(vo)	voltage
+	91	v(x1.net2)	voltage
+	92	v(x1.net3)	voltage
+Values:
+ 0	6.671616655985164e-01
+	6.944312608176184e-07
+	1.244979690589574e-04
+	1.036257587799303e-05
+	1.197539512623343e+00
+	1.397403463163197e-01
+	7.289292709259753e-01
+	5.976848126192464e-01
+	1.499355889632873e-06
+	7.419313055444951e-05
+	4.832992106806115e-06
+	2.390507189845913e-01
+	1.117034950477303e-01
+	7.694285660094183e-01
+	6.932821581598869e-01
+	1.303532266526241e-07
+	5.805574940293380e-05
+	4.832991640507203e-06
+	1.132838334401484e+00
+	1.383702769369130e-01
+	1.132838334401484e+00
+	1.028032824956337e+00
+	4.876600564368341e-07
+	9.343309914343471e-05
+	1.036258973078190e-05
+	6.024604873766566e-01
+	1.934498574320713e-01
+	1.207581771441965e+00
+	1.028088683750824e+00
+	3.729461207259964e-06
+	7.230708316932388e-05
+	4.842513409973951e-06
+	1.643072819441099e-01
+	1.132828955199324e-01
+	7.718890533860751e-01
+	6.932821682603167e-01
+	1.245368376097374e-07
+	5.816311685452660e-05
+	4.842512793799265e-06
+	1.207581771441965e+00
+	1.383756804837064e-01
+	1.132838334401484e+00
+	1.028024953062153e+00
+	8.924954111489625e-07
+	1.209916104838299e-04
+	9.999999267375297e-06
+	7.289292709259753e-01
+	1.397403435849048e-01
+	7.289292709259753e-01
+	5.976848172626723e-01
+	1.386715665743662e-06
+	1.173202243623596e-04
+	9.675504225922315e-06
+	4.281109466139251e-01
+	1.397403418623251e-01
+	7.289292709259753e-01
+	5.976848201896999e-01
+	0.000000000000000e+00
+	3.464723361764863e-10
+	2.032651978519704e-10
+	1.732361680837242e-10
+	1.375432419350233e-11
+	2.364674568981558e-11
+	1.761622675349548e-11
+	1.799999999985787e+00
+	1.799999999964467e+00
+	1.799999999992893e+00
+	1.799999999992416e+00
+	1.799999999981041e+00
+	1.799999999996208e+00
+	1.281702421857259e-11
+	2.130349582255332e-11
+	1.714757676604233e-11
+	1.799999999984849e+00
+	1.799999999962129e+00
+	1.799999999992424e+00
+	9.158730977033451e-12
+	2.289313921487406e-11
+	4.579365488397272e-12
+	5.396657982943299e-12
+	1.349164436155858e-11
+	2.698328991401263e-12
+	1.800000000000000e+00
+	7.289292709259753e-01
+	1.200000000000000e+00
+	-3.003809712092716e-05
+	0.000000000000000e+00
+	0.000000000000000e+00
+	1.197539512623343e+00
+	1.200000000000000e+00
+	1.197539512623343e+00
+	5.924182285580351e-01
+	4.281109466139251e-01
+
