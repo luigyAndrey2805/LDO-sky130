@@ -4,10 +4,10 @@ Vgp VDD vgp {vsg}
 Vdd VDD 0 1.8
 XMplvt 0 vgp VDD VDD sky130_fd_pr__pfet_01v8_lvt L=0.35 W=1000 nf=50 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
 + mult=1
-XMp 0 vgp VDD VDD sky130_fd_pr__pfet_01v8 L=0.15 W=1.0 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0 mult=1
+XMp 0 vgp VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=10 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0 mult=1
 XMnlvt VDD vgn 0 0 sky130_fd_pr__nfet_01v8_lvt L=0.35 W=1.0 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
 + mult=1
-XMn VDD vgn 0 0 sky130_fd_pr__nfet_01v8 L=0.3 W=1.0 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0 mult=1
+XMn VDD vgn 0 0 sky130_fd_pr__nfet_01v8 L=0.5 W=10 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0 mult=1
 Vgn vgn 0 {vgs}
 **** begin user architecture code
 
@@ -25,7 +25,7 @@ Vgn vgn 0 {vgs}
 
 * Parametros de tension de polarizacion iniciales
 .param vsg = 0.6
-.param vgs = 1
+.param vgs = 0.85
 
 * Parametros de dimensiones geometricas (en micrometros um)
 .param wplvt = 1

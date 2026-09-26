@@ -1,0 +1,158 @@
+** sch_path: /foss/designs/LDO-sky130/xschem/OTA_tb.sch
+**.subckt OTA_tb
+x1 net1 vo vin vip net2 0 OTA
+V1 net1 0 {VDD}
+I0 net1 net2 10u
+V2 net3 0 {VCM}
+V3 vip net3 ac {VAC}
+C1 vin 0 1G
+L4 vin vo 1G
+C2 vo 0 10e-12
+**** begin user architecture code
+
+
+
+
+* 1. Inclusión de libreria de modelos Sky130 PRIMERO
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+**parametros_ota
+.param VDD = 1.8
+.param VCM = 1.2
+.param VAC = 1
+
+
+
+.control
+
+save all
+* PMOS
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMnr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMpr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.xMo.msky130_fd_pr__pfet_01v8[vdsat]
+
+* NMOS
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMn.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMp.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMr.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMrc1.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vdsat]
+
+set filetype=ascii
+op
+write OTA_op.raw
+
+ac dec 10 1 1G
+write OTA_ac.raw
+
+
+* 1. Frecuencia de Corte a -3dB
+meas ac f3db WHEN vdb(vo) = vdb(vo)[0] - 3
+
+* 2. UGB (Frecuencia donde la magnitud cruza 0 dB)
+meas ac ugb WHEN vdb(vo) = 0
+
+* 3. Crear el vector de fase y convertirlo a grados (multiplicando por 180/pi)
+let fase_deg = cph(v(vo)) * 180 / pi
+
+* 4. Medir la fase en grados en el punto exacto del UGB
+meas ac fase_ugb FIND fase_deg WHEN vdb(vo) = 0
+
+* 5. Calcular el Margen de Fase automáticamente
+let margen_fase = 180 + fase_ugb
+print margen_fase
+
+* 6. Graficar la magnitud y la fase ya convertida a grados
+plot vdb(vo)
+plot fase_deg
+.endc
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  /foss/designs/LDO-sky130/xschem/OTA.sym # of pins=6
+** sym_path: /foss/designs/LDO-sky130/xschem/OTA.sym
+** sch_path: /foss/designs/LDO-sky130/xschem/OTA.sch
+.subckt OTA VDD VO_ota VIN_ota VIP_ota Iref VSS
+*.ipin VIN_ota
+*.opin VO_ota
+*.iopin Iref
+*.iopin VSS
+*.iopin VDD
+*.ipin VIP_ota
+XMr Iref Iref VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=0.5 nf=1 ad=0.145 as=0.145 pd=1.58 ps=1.58 nrd=0.58 nrs=0.58 sa=0 sb=0 sd=0
++ mult=1
+XMo VO_ota VO_ota1 VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=20 nf=1 ad=5.8 as=5.8 pd=40.58 ps=40.58 nrd=0.0145 nrs=0.0145 sa=0 sb=0
++ sd=0 mult=1
+XMrc1 Vtail Iref VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=2 nf=1 ad=0.58 as=0.58 pd=4.58 ps=4.58 nrd=0.145 nrs=0.145 sa=0 sb=0 sd=0
++ mult=1
+XMc2 VO_ota Iref VSS VSS sky130_fd_pr__nfet_01v8 L=0.5 W=1 nf=1 ad=0.29 as=0.29 pd=2.58 ps=2.58 nrd=0.29 nrs=0.29 sa=0 sb=0 sd=0
++ mult=1
+XMn VGP VIN_ota Vtail VSS sky130_fd_pr__nfet_01v8 L=0.5 W=40 nf=1 ad=11.6 as=11.6 pd=80.58 ps=80.58 nrd=0.00725 nrs=0.00725 sa=0
++ sb=0 sd=0 mult=1
+XMp VO_ota1 VIP_ota Vtail VSS sky130_fd_pr__nfet_01v8 L=0.5 W=40 nf=1 ad=11.6 as=11.6 pd=80.58 ps=80.58 nrd=0.00725 nrs=0.00725
++ sa=0 sb=0 sd=0 mult=1
+XMpr VO_ota1 VGP VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=40 nf=1 ad=11.6 as=11.6 pd=80.58 ps=80.58 nrd=0.00725 nrs=0.00725 sa=0
++ sb=0 sd=0 mult=1
+XMnr VGP VGP VDD VDD sky130_fd_pr__pfet_01v8 L=0.5 W=40 nf=1 ad=11.6 as=11.6 pd=80.58 ps=80.58 nrd=0.00725 nrs=0.00725 sa=0 sb=0
++ sd=0 mult=1
+XR1 VO_ota1 net1 VDD sky130_fd_pr__res_high_po W=0.35 L=360 mult=1
+XC1 VO_ota net1 sky130_fd_pr__cap_mim_m3_2 W=50 L=50 MF=1
+.ends
+
+.end

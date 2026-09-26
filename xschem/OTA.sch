@@ -27,14 +27,14 @@ N -370 -50 -370 10 {lab=Vtail}
 N -250 10 -160 10 {lab=Vtail}
 N -160 -50 -160 10 {lab=Vtail}
 N -370 -230 -370 -110 {lab=VGP}
-N -160 -230 -160 -110 {lab=VO_ota}
+N -160 -230 -160 -110 {lab=VO_ota1}
 N 130 -180 130 60 {lab=VO_ota}
 N -370 -380 -370 -290 {lab=VDD}
 N -370 -380 130 -380 {lab=VDD}
 N 130 -380 130 -240 {lab=VDD}
 N -160 -380 -160 -290 {lab=VDD}
 N -330 -260 -200 -260 {lab=VGP}
-N -160 -210 90 -210 {lab=VO_ota}
+N -160 -210 90 -210 {lab=VO_ota1}
 N -370 -80 -160 -80 {lab=VSS}
 N -160 -260 -110 -260 {lab=VDD}
 N -110 -380 -110 -260 {lab=VDD}
@@ -56,12 +56,16 @@ N -600 -20 -600 10 {lab=Iref}
 N -90 -410 -90 -380 {lab=VDD}
 N -290 190 -290 220 {lab=VSS}
 N 130 -150 220 -150 {lab=VO_ota}
+N -160 -150 -90 -150 {lab=VO_ota1}
+N -30 -150 0 -150 {lab=#net1}
+N 60 -150 130 -150 {lab=VO_ota}
+N -100 -170 -60 -170 {lab=VDD}
 C {ipin.sym} -430 -80 0 0 {name=p1 lab=VIN_ota}
 C {opin.sym} 220 -150 0 0 {name=p2 lab=VO_ota}
 C {iopin.sym} -600 -20 3 0 {name=p3 lab=Iref}
 C {sky130_fd_pr/nfet_01v8.sym} -580 90 0 1 {name=Mr
-W=1
-L=0.15
+W=0.5
+L=0.5
 nf=1 
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -74,8 +78,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 110 -210 0 0 {name=Mo
-W=1
-L=0.15
+W=20
+L=0.5
 nf=1
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -88,8 +92,8 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -270 90 0 0 {name=Mrc1
-W=1
-L=0.15
+W=2
+L=0.5
 nf=1 
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -103,7 +107,7 @@ spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} 110 90 0 0 {name=Mc2
 W=1
-L=0.15
+L=0.5
 nf=1 
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -116,8 +120,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -390 -80 0 0 {name=Mn
-W=1
-L=0.15
+W=40
+L=0.5
 nf=1 
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -130,8 +134,8 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/nfet_01v8.sym} -140 -80 0 1 {name=Mp
-W=1
-L=0.15
+W=40
+L=0.5
 nf=1 
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -147,10 +151,10 @@ C {lab_wire.sym} -470 190 0 0 {name=p6 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} -270 -380 0 0 {name=p7 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} -260 -80 0 0 {name=p8 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 130 -70 0 0 {name=p9 sig_type=std_logic lab=VO_ota}
-C {lab_wire.sym} -160 -160 0 0 {name=p10 sig_type=std_logic lab=VO_ota}
+C {lab_wire.sym} -160 -160 0 0 {name=p10 sig_type=std_logic lab=VO_ota1}
 C {sky130_fd_pr/pfet_01v8.sym} -180 -260 0 0 {name=Mpr
-W=1
-L=0.15
+W=40
+L=0.5
 nf=1
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -163,8 +167,8 @@ model=pfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} -350 -260 0 1 {name=Mnr
-W=1
-L=0.15
+W=40
+L=0.5
 nf=1
 mult=1
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
@@ -182,3 +186,11 @@ C {ipin.sym} -100 -80 2 0 {name=p11 lab=VIP_ota}
 C {lab_wire.sym} -430 90 0 0 {name=p12 sig_type=std_logic lab=Iref}
 C {lab_wire.sym} -290 10 0 0 {name=p13 sig_type=std_logic lab=Vtail}
 C {lab_wire.sym} -220 -260 0 0 {name=p14 sig_type=std_logic lab=VGP}
+C {sky130_fd_pr/res_high_po.sym} -60 -150 1 0 {name=R1
+W=0.35
+L=360
+model=res_high_po
+spiceprefix=X
+mult=1}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 30 -150 1 0 {name=C1 model=cap_mim_m3_2 W=50 L=50 MF=1 spiceprefix=X}
+C {lab_wire.sym} -100 -170 0 0 {name=p15 sig_type=std_logic lab=VDD}

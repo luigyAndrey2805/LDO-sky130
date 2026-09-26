@@ -1,0 +1,110 @@
+Title: ** sch_path: /foss/designs/ldo-sky130/xschem/ldo_tb.sch
+Date: Sat Sep 26 05:22:00  2026
+Command: ngspice-46, Build Thu Apr 16 19:53:00 UTC 2026
+Plotname: Operating Point
+Flags: real
+No. Variables: 50
+No. Points: 1
+Variables:
+	0	v(x1.net1)	voltage
+	1	i(l.x1.l4)	current
+	2	v(m.x1.x1.xmc2.msky130_fd_pr__nfet_01v8#body)	voltage
+	3	v(m.x1.x1.xmc2.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	4	v(m.x1.x1.xmc2.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	5	v(m.x1.x1.xmn.msky130_fd_pr__nfet_01v8#body)	voltage
+	6	v(m.x1.x1.xmn.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	7	v(m.x1.x1.xmn.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	8	v(m.x1.x1.xmnr.msky130_fd_pr__pfet_01v8#body)	voltage
+	9	v(m.x1.x1.xmnr.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	10	v(m.x1.x1.xmnr.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	11	v(m.x1.x1.xmo.msky130_fd_pr__pfet_01v8#body)	voltage
+	12	v(m.x1.x1.xmo.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	13	v(m.x1.x1.xmo.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	14	v(m.x1.x1.xmp.msky130_fd_pr__nfet_01v8#body)	voltage
+	15	v(m.x1.x1.xmp.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	16	v(m.x1.x1.xmp.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	17	v(m.x1.x1.xmpr.msky130_fd_pr__pfet_01v8#body)	voltage
+	18	v(m.x1.x1.xmpr.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	19	v(m.x1.x1.xmpr.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	20	v(m.x1.x1.xmr.msky130_fd_pr__nfet_01v8#body)	voltage
+	21	v(m.x1.x1.xmr.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	22	v(m.x1.x1.xmr.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	23	v(m.x1.x1.xmrc1.msky130_fd_pr__nfet_01v8#body)	voltage
+	24	v(m.x1.x1.xmrc1.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	25	v(m.x1.x1.xmrc1.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	26	v(m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt#body)	voltage
+	27	v(m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt#dbody)	voltage
+	28	v(m.x1.xm1.msky130_fd_pr__pfet_01v8_lvt#sbody)	voltage
+	29	v(net1)	voltage
+	30	v(net2)	voltage
+	31	i(v.x1.xr1.vrpwres_3)	current
+	32	i(v.x1.xr2.vrpwres_3)	current
+	33	i(v1)	current
+	34	i(v2)	current
+	35	i(v3)	current
+	36	v(vi)	voltage
+	37	v(vo)	voltage
+	38	v(x1.net2)	voltage
+	39	v(x1.net3)	voltage
+	40	v(x1.vre)	voltage
+	41	v(x1.x1.net1)	voltage
+	42	v(x1.x1.vgp)	voltage
+	43	v(x1.x1.vo_ota1)	voltage
+	44	v(x1.x1.vtail)	voltage
+	45	v(x1.x1.xc1.a)	voltage
+	46	v(x1.x1.xc1.b1)	voltage
+	47	v(x1.x1.xr1.rb)	voltage
+	48	v(x1.xr1.rpwres_3)	voltage
+	49	v(x1.xr2.rpwres_3)	voltage
+Values:
+ 0	9.216545057759477e-01
+	0.000000000000000e+00
+	1.630623524270335e-09
+	8.484700175467392e-10
+	8.153119143262231e-10
+	1.334016941099138e-11
+	2.883546364229425e-11
+	8.562803055682101e-12
+	1.799999999987195e+00
+	1.799999999969225e+00
+	1.799999999993598e+00
+	1.799999999993920e+00
+	1.799999999984802e+00
+	1.799999999996960e+00
+	1.046551040648080e-11
+	2.422485464339516e-11
+	7.125473572752066e-12
+	1.799999999983525e+00
+	1.799999999964217e+00
+	1.799999999991763e+00
+	1.153534607574471e-11
+	2.882698006172302e-11
+	5.767821175212357e-12
+	6.016966437643545e-13
+	1.504195376744593e-12
+	3.008945361118063e-13
+	1.799999999992296e+00
+	1.799999999980890e+00
+	1.799999999996148e+00
+	6.000000000000000e-01
+	1.800000000000000e+00
+	0.000000000000000e+00
+	0.000000000000000e+00
+	-4.223464562419510e-05
+	0.000000000000000e+00
+	-1.206008126609959e-02
+	1.800000000000000e+00
+	1.193269758251183e+00
+	1.325129501439733e+00
+	6.017804571149167e-01
+	6.017804571149167e-01
+	7.208021891528648e-01
+	8.477332700634921e-01
+	7.208020908013660e-01
+	4.650374622002491e-02
+	7.208021891528648e-01
+	7.208021891528648e-01
+	7.208020910544978e-01
+	0.000000000000000e+00
+	0.000000000000000e+00
+
