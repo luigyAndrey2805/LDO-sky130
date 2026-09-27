@@ -74,5 +74,5 @@ C {lab_wire.sym} 240 -340 0 0 {name=p9 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 440 -470 0 0 {name=p10 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 520 -260 0 0 {name=p11 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 520 -170 0 0 {name=p12 sig_type=std_logic lab=VDD}
-C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac 1" savecurrent=false}
+C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=false}
 C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=19.5 L=19.5 MF=1 spiceprefix=X}
