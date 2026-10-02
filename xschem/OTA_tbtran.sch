@@ -43,7 +43,7 @@ value="
 
 **parametros_ota
 .param VDD = 1.8
-.param VCM = 1.2
+.param VCM = 0.6
 .param VAC = 1
 .param deltavin = 50m
 .param tsim = 2m

@@ -8,7 +8,7 @@ E {}
 N -250 -30 -250 -10 {lab=0}
 N -50 100 -50 120 {lab=0}
 N -50 10 -50 40 {lab=vref}
-N -150 60 -150 80 {lab=0}
+N -150 130 -150 150 {lab=0}
 N -150 -30 -150 0 {lab=vi}
 N -150 -40 -0 -40 {lab=vi}
 N -150 -40 -150 -30 {lab=vi}
@@ -30,14 +30,15 @@ N 160 -40 160 -30 {lab=vo}
 N 160 30 160 70 {lab=#net1}
 N 160 70 170 70 {lab=#net1}
 N 230 70 260 70 {lab=0}
+N -150 60 -150 70 {lab=#net2}
 C {/foss/designs/LDO-sky130/xschem/LDO.sym} 150 -20 0 0 {name=x1}
 C {vsource.sym} -250 -60 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
 C {gnd.sym} -250 -10 0 0 {name=l2 lab=0}
 C {vsource.sym} -50 70 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
 C {gnd.sym} -50 120 0 0 {name=l1 lab=0}
 C {gnd.sym} 70 60 0 0 {name=l3 lab=0}
-C {vsource.sym} -150 30 0 0 {name=Vin value=\{VIN\} savecurrent=false}
-C {gnd.sym} -150 80 0 0 {name=l4 lab=0}
+C {vsource.sym} -150 100 0 0 {name=Vin value=\{VIN\} savecurrent=false}
+C {gnd.sym} -150 150 0 0 {name=l4 lab=0}
 C {res.sym} 260 20 0 0 {name=R1
 value=\{RL\}
 footprint=1206
@@ -69,9 +70,9 @@ value="
 **parametros_ldo
 .param VDD = 1.8
 .param VREF = 0.6
-.param VIN = 1.8
-.param RL = 25
-.param CL = 1u
+.param VIN = '1*VDD'
+.param RL = 24
+.param CL = 0
 .param tsim = 2m
 * Parámetros para la prueba de carga del LDO
 .param iload_min = 1m
@@ -94,11 +95,6 @@ value="
 let tperiod  = 400u
 let tsim = '5*tperiod'
 
-set filetype=ascii
-
-* 1. Punto de Operación (.OP)
-op
-write LDO_op.raw
 
 * 2. Análisis Transitorio para overshot y undershot (.TRAN)
 tran 1u $&tsim
@@ -112,11 +108,6 @@ let loop_gain_db = vdb(T_loop)
 let fase_deg = vp(T_loop) * 180 / pi
 write LDO_ac_estability.raw
 
-* 4. Análisis en dc sweep para el load regulation
-dc iload 100u 50m 100u
-*plot vo
-*plot vsense#branch
-write LDO_dc_load.raw
 
 * 5. Analisis en dc sweep para el line regulation 
 dc vin 1.3 2 0.01
@@ -128,14 +119,26 @@ write LDO_dc_line.raw
 alterparam ac_iprobe = 0
 alterparam ac_vdd = 1
 reset 
-
 ac dec 10 1 1G
 * 1. Ganancia de Lazo Abierto T(s) = v(x1.vre) / v(x1.net3)
 let psrr1 = v(vdd)/v(vo) 
 let psrr_db = vdb(psrr1)
-
 write LDO_ac_psrr.raw
 
+* 4. Análisis en dc sweep para el load regulation
+alterparam RL = 1e9
+reset
+dc iload 400u 50m 100u
+*plot vo
+*plot vsense#branch
+write LDO_dc_load.raw
+
+
+* ANALISIS EN DC PARA EL DROPOUT
+alterparam RL = 24
+reset 
+dc vin1 0 2 0.01
+write LDO_dc_dropout.raw
 
 
 
@@ -174,8 +177,133 @@ meas dc voline_min MIN v(vo)
 let line_regulation = voline_max - voline_min
 echo 'line_regulation = $&line_regulation'
 
+*CALCULOS PARA EL DROPOUT
+setplot dc3
 
+* 1. Usamos v(vo) para el nodo y v-sweep para el eje X (que es el barrido de 'vin')
+meas dc vout_nom FIND v(vo) WHEN vi = 1.55
+
+* 2. Calcular dinámicamente el valor objetivo al 99.5% (0.5% de caída según tu código)
+let vout_target = vout_nom * 0.995
+
+* 3. Encontrar el Vin en el que Vout cruza el vout_target (usamos cross=1 en lugar de fall=1)
+meas dc vin_do FIND vi WHEN vo = vout_target fall=1
+
+* 4. Calcular el Dropout exacto (cambiado *e3 por *1e3)
+let dropout_mV = (vin_do - vout_target) * 1e3
+
+* 5. Imprimir las variables con los nombres correctos
+print vout_nom vout_target vin_do dropout_mV
+
+*CALCULOS PARA OVERSHOOT E UNDERSHOOT
+*CALCULOS PARA OVERSHOOT E UNDERSHOOT
+setplot tran1
+
+* 1. Medir el voltaje estable en carga ligera (justo antes de tstart = 10u)
+meas tran v_estable_ligera FIND v(vo) AT=9u
+
+* 2. Medir el voltaje estable en carga pesada (justo antes de que acabe el pulso en 210u)
+meas tran v_estable_pesada FIND v(vo) AT=20u
+
+* 3. Encontrar los picos absolutos de la simulación
+meas tran vo_max MAX v(vo)
+meas tran vo_min MIN v(vo)
+
+* 4. Calcular el Undershoot y Overshoot verdaderos (en milivoltios)
+* Undershoot: Lo que cae respecto al valor que tenía en carga ligera
+let undershoot_mV = (v_estable_ligera - vo_min) * 1e3
+
+* Overshoot: Lo que sube respecto al valor que tenía en carga pesada
+let overshoot_mV = (vo_max - v_estable_pesada) * 1e3
+
+* 5. Imprimir resultados en la consola
+echo '--- RESULTADOS DE TRANSIENTE ---'
+print undershoot_mV overshoot_mV v_estable_ligera v_estable_pesada
 .endc
 
 "
 }
+C {code_shown.sym} -230 470 0 0 {name=s2 
+only_topleveL=false 
+value="
+
+
+
+
+.control
+
+set filetype=ascii
+
+* 1. Punto de Operación (.OP)
+op
+* PMOS
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vdsat]
+
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vdsat]
+
+* NMOS
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vdsat]
+write LDO_op.raw
+
+.endc
+"
+}
+C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}

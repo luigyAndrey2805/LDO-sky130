@@ -34,6 +34,10 @@ N 160 -210 200 -210 {lab=#net3}
 N 580 -220 700 -220 {lab=Vre}
 N 700 -280 700 -220 {lab=Vre}
 N 700 -380 700 -340 {lab=VOUT}
+N 730 -380 870 -380 {lab=VOUT}
+N 580 -100 830 -100 {lab=VSS}
+N 830 -380 830 -260 {lab=VOUT}
+N 830 -200 830 -100 {lab=VSS}
 C {/foss/designs/LDO-sky130/xschem/OTA.sym} 260 -180 0 0 {name=x1}
 C {isource.sym} 240 -300 0 0 {name=I0 value=10u}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 440 -360 3 0 {name=M1
@@ -52,13 +56,13 @@ spiceprefix=X
 }
 C {ipin.sym} 80 -380 0 0 {name=p1 lab=VIN}
 C {iopin.sym} 310 -310 0 0 {name=p3 lab=VDD}
-C {opin.sym} 730 -380 0 0 {name=p2 lab=VOUT}
+C {opin.sym} 870 -380 0 0 {name=p2 lab=VOUT}
 C {lab_wire.sym} 330 -100 0 0 {name=p4 sig_type=std_logic lab=VSS}
 C {ipin.sym} 80 -150 0 0 {name=p5 lab=Vref}
 C {lab_wire.sym} 70 -210 0 0 {name=p6 sig_type=std_logic lab=Vre}
 C {sky130_fd_pr/res_iso_pw.sym} 580 -260 0 0 {name=R1
 W=0.35
-L=10
+L=10.16
 model=res_iso_pw
 spiceprefix=X
 mult=1}
@@ -76,3 +80,4 @@ C {lab_wire.sym} 520 -260 0 0 {name=p11 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 520 -170 0 0 {name=p12 sig_type=std_logic lab=VDD}
 C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=false}
 C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=19.5 L=19.5 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 830 -230 0 0 {name=C2 model=cap_mim_m3_2 W=40 L=40 MF=1 spiceprefix=X}

@@ -1,0 +1,11 @@
+* test
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+XMplvt vo vgp vdd vdd sky130_fd_pr__pfet_01v8_lvt L=0.35 W=10 nf=1
+Vdd vdd 0 1.8
+Vgp vgp 0 0.6
+Vo vo 0 1.2
+.control
+  op
+  show xMplvt
+.endc
+.end

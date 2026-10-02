@@ -1,0 +1,64 @@
+** sch_path: /foss/designs/LDO-sky130/xschem/caracterizador.sch
+.subckt caracterizador
+Vgp VDD vgp {vsg}
+Vdd VDD 0 1.8
+XMplvt 0 vgp VDD VDD sky130_fd_pr__pfet_01v8_lvt L={lplvt} W={wplvt} nf={nfplvt} mult={multplvt}
+XMp 0 vgp VDD VDD sky130_fd_pr__pfet_01v8 L={lp} W={wp} nf={nfp} mult={multp}
+XMnlvt VDD vgn 0 0 sky130_fd_pr__nfet_01v8_lvt L={lnlvt} W={wnlvt} nf={nfnlvt} mult={multnlvt}
+XMn VDD vgn 0 0 sky130_fd_pr__nfet_01v8 L={ln} W={wn} nf={nfn} mult={multn}
+Vgn vgn 0 {vgs}
+
+* ==============================================================================
+* Encabezado: Caracterizador Completo para PMOS y NMOS Sky130 (Std y LVT)
+* Descripcion: Control de simulacion para extraer gm, ro, Id, Vth, Vdsat, Vov,
+*              Cgg, ft y gm/Id de los 4 transistores (Mplvt, Mp, Mnlvt, Mn).
+* ==============================================================================
+
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+.param vsg = 0.6
+.param vgs = 0.6
+
+.param wplvt = 1000
+.param lplvt = 0.35
+.param nfplvt = 50
+.param multplvt = 5
+
+.param wp = 1.0
+.param lp = 0.15
+.param nfp = 1
+.param multp = 1
+
+.param wnlvt = 1.0
+.param lnlvt = 0.35
+.param nfnlvt = 1
+.param multnlvt = 1
+
+.param wn = 0.3
+.param ln = 0.50
+.param nfn = 1
+.param multn = 1
+
+.control
+  set ngbehavior=ps
+  save all
+
+  save @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[gm] @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[gds] i(@m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[id]) v(@m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[vth]) v(@m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[vdsat]) @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[cgg] v(@m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[vgs])
+  save @m.xMp.msky130_fd_pr__pfet_01v8[gm] @m.xMp.msky130_fd_pr__pfet_01v8[gds] i(@m.xMp.msky130_fd_pr__pfet_01v8[id]) v(@m.xMp.msky130_fd_pr__pfet_01v8[vth]) v(@m.xMp.msky130_fd_pr__pfet_01v8[vdsat]) @m.xMp.msky130_fd_pr__pfet_01v8[cgg] v(@m.xMp.msky130_fd_pr__pfet_01v8[vgs])
+  save @m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[gm] @m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[gds] i(@m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[id]) v(@m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[vth]) v(@m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[vdsat]) @m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[cgg] v(@m.xMnlvt.msky130_fd_pr__nfet_01v8_lvt[vgs])
+  save @m.xMn.msky130_fd_pr__nfet_01v8[gm] @m.xMn.msky130_fd_pr__nfet_01v8[gds] i(@m.xMn.msky130_fd_pr__nfet_01v8[id]) v(@m.xMn.msky130_fd_pr__nfet_01v8[vth]) v(@m.xMn.msky130_fd_pr__nfet_01v8[vdsat]) @m.xMn.msky130_fd_pr__nfet_01v8[cgg] v(@m.xMn.msky130_fd_pr__nfet_01v8[vgs])
+
+  set filetype=ascii
+
+  * --- 1. BARRIDO PMOS (Vgp de 0V a 1.8V) ---
+  dc Vgp 0 1.8 0.01
+  setplot dc1
+  write caracterizador_pmos.raw all
+
+  * --- 2. BARRIDO NMOS (Vgn de 0V a 1.8V) ---
+  dc Vgn 0 1.8 0.01
+  setplot dc2
+  write caracterizador_nmos.raw all
+.endc
+.ends
+.end

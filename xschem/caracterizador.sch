@@ -58,15 +58,15 @@ modeL=pfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8.sym} 460 -90 0 0 {name=Mp
-L=0.15
-W=1
+L=0.5
+W=40
 nf=1 mult=1
 modeL=pfet_01v8
 spiceprefix=X
 }
 C {gnd.sym} 270 10 0 0 {name=l3 lab=0}
 C {gnd.sym} 480 10 0 0 {name=l5 lab=0}
-C {code_shown.sym} 680 -260 0 0 {name=s1 
+C {code_shown.sym} 700 -260 0 0 {name=s1 
 only_topleveL=false 
 value="
 * ==============================================================================
@@ -81,7 +81,7 @@ value="
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
 * Parametros de tension de polarizacion iniciales
-.param vsg = 0.6
+.param vsg = 1.027
 .param vgs = 0.6
 
 * Parametros de dimensiones geometricas (en micrometros um)
@@ -168,10 +168,9 @@ value="
 
   * Guardar los resultados en archivo caracterizador.raw
   set filetype=ascii
-  
-
-  op
   write caracterizador.raw all
+op
+write caracterizador_op.raw
 .endc
 
 "

@@ -53,7 +53,7 @@ value="
 
 **parametros_ota
 .param VDD = 1.8
-.param VCM = 1.2
+.param VCM = 0.6
 .param VAC = 1
 
 
@@ -130,6 +130,7 @@ save @m.x1.xMc2.msky130_fd_pr__nfet_01v8[vdsat]
 set filetype=ascii
 op
 write OTA_op.raw
+
 
 ac dec 10 1 1G
 write OTA_ac.raw

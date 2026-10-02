@@ -1,0 +1,102 @@
+Title: ** sch_path: /foss/designs/ldo-sky130/xschem/caracterizador.sch
+Date: Tue Sep 29 21:33:30  2026
+Command: ngspice-46, Build Thu Apr 16 19:53:00 UTC 2026
+Plotname: Operating Point
+Flags: real
+No. Variables: 46
+No. Points: 1
+Variables:
+	0	v(vdd)	voltage
+	1	@m.xmn.msky130_fd_pr__nfet_01v8[cgg]	capacitance
+	2	@m.xmn.msky130_fd_pr__nfet_01v8[gds]	admittance
+	3	@m.xmn.msky130_fd_pr__nfet_01v8[gm]	admittance
+	4	i(@m.xmn.msky130_fd_pr__nfet_01v8[id])	current
+	5	v(@m.xmn.msky130_fd_pr__nfet_01v8[vdsat])	voltage
+	6	v(@m.xmn.msky130_fd_pr__nfet_01v8[vgs])	voltage
+	7	v(@m.xmn.msky130_fd_pr__nfet_01v8[vth])	voltage
+	8	@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[cgg]	capacitance
+	9	@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[gds]	admittance
+	10	@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[gm]	admittance
+	11	i(@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[id])	current
+	12	v(@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[vdsat])	voltage
+	13	v(@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[vgs])	voltage
+	14	v(@m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt[vth])	voltage
+	15	@m.xmp.msky130_fd_pr__pfet_01v8[cgg]	capacitance
+	16	@m.xmp.msky130_fd_pr__pfet_01v8[gds]	admittance
+	17	@m.xmp.msky130_fd_pr__pfet_01v8[gm]	admittance
+	18	i(@m.xmp.msky130_fd_pr__pfet_01v8[id])	current
+	19	v(@m.xmp.msky130_fd_pr__pfet_01v8[vdsat])	voltage
+	20	v(@m.xmp.msky130_fd_pr__pfet_01v8[vgs])	voltage
+	21	v(@m.xmp.msky130_fd_pr__pfet_01v8[vth])	voltage
+	22	@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[cgg]	capacitance
+	23	@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[gds]	admittance
+	24	@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[gm]	admittance
+	25	i(@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[id])	current
+	26	v(@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[vdsat])	voltage
+	27	v(@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[vgs])	voltage
+	28	v(@m.xmplvt.msky130_fd_pr__pfet_01v8_lvt[vth])	voltage
+	29	v(m.xmn.msky130_fd_pr__nfet_01v8#body)	voltage
+	30	v(m.xmn.msky130_fd_pr__nfet_01v8#dbody)	voltage
+	31	v(m.xmn.msky130_fd_pr__nfet_01v8#sbody)	voltage
+	32	v(m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt#body)	voltage
+	33	v(m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt#dbody)	voltage
+	34	v(m.xmnlvt.msky130_fd_pr__nfet_01v8_lvt#sbody)	voltage
+	35	v(m.xmp.msky130_fd_pr__pfet_01v8#body)	voltage
+	36	v(m.xmp.msky130_fd_pr__pfet_01v8#dbody)	voltage
+	37	v(m.xmp.msky130_fd_pr__pfet_01v8#sbody)	voltage
+	38	v(m.xmplvt.msky130_fd_pr__pfet_01v8_lvt#body)	voltage
+	39	v(m.xmplvt.msky130_fd_pr__pfet_01v8_lvt#dbody)	voltage
+	40	v(m.xmplvt.msky130_fd_pr__pfet_01v8_lvt#sbody)	voltage
+	41	i(vdd)	current
+	42	v(vgn)	voltage
+	43	i(vgn)	current
+	44	v(vgp)	voltage
+	45	i(vgp)	current
+Values:
+ 0	1.800000000000000e+00
+	6.696374423574932e-15
+	1.735706024435824e-06
+	2.638196845239283e-04
+	3.251900271707843e-05
+	1.915592841036973e-01
+	8.499905694892120e-01
+	6.284193666879551e-01
+	2.573868809203572e-15
+	1.466405502414492e-06
+	1.579241211744251e-04
+	2.839536728919927e-05
+	2.751812353522043e-01
+	8.499917653434861e-01
+	5.312554546699029e-01
+	6.996769115351914e-14
+	2.835107709465249e-06
+	4.854837311786946e-04
+	4.099746019217439e-05
+	1.430632455541678e-01
+	1.099999702768414e+00
+	9.927531145264967e-01
+	7.466846758944406e-15
+	8.376957743925246e-06
+	2.262295298058242e-04
+	7.953721510426237e-05
+	5.982476565231516e-01
+	1.099999884671038e+00
+	3.803877689781242e-01
+	1.378111488613104e-07
+	6.895058984149982e-08
+	6.890557466907590e-08
+	3.960336889625641e-08
+	1.984671494574405e-08
+	1.980168466104201e-08
+	1.799999998870605e+00
+	1.799999999389571e+00
+	1.799999999435302e+00
+	1.799999999960954e+00
+	1.799999999934967e+00
+	1.799999999980477e+00
+	-1.814561923706784e-04
+	8.500000000000000e-01
+	0.000000000000000e+00
+	7.000000000000000e-01
+	0.000000000000000e+00
+
