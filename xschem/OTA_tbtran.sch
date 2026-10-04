@@ -8,9 +8,6 @@ E {}
 N 260 -90 260 -70 {lab=0}
 N 320 -230 320 -210 {lab=0}
 N 320 -320 320 -290 {lab=#net1}
-N 230 -320 320 -320 {lab=#net1}
-N 230 -320 230 -290 {lab=#net1}
-N 230 -230 230 -210 {lab=#net2}
 N 260 -210 260 -190 {lab=#net1}
 N 260 -210 280 -210 {lab=#net1}
 N 280 -320 280 -210 {lab=#net1}
@@ -25,9 +22,9 @@ N 50 -170 50 -150 {lab=vip}
 N 50 -170 80 -170 {lab=vip}
 N 50 -80 140 -80 {lab=vin}
 N 140 -110 140 -80 {lab=vin}
+N 280 -320 320 -320 {lab=#net1}
 C {/foss/designs/LDO-sky130/xschem/OTA.sym} 250 -140 0 0 {name=x1}
 C {vsource.sym} 320 -260 0 0 {name=V1 value=\{VDD\} savecurrent=false}
-C {isource.sym} 230 -260 0 0 {name=I0 value=10u}
 C {gnd.sym} 260 -70 0 0 {name=l1 lab=0}
 C {gnd.sym} 320 -210 0 0 {name=l2 lab=0}
 C {gnd.sym} 50 0 0 0 {name=l3 lab=0}

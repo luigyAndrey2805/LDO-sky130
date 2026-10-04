@@ -17,7 +17,7 @@ N -50 -0 -0 0 {lab=vref}
 N 70 30 70 60 {lab=0}
 N 70 -120 70 -70 {lab=VDD}
 N -250 -110 -250 -90 {lab=VDD}
-N 260 50 260 80 {lab=0}
+N 260 50 260 80 {lab=#net1}
 N 260 -40 260 -10 {lab=vo}
 N 130 -40 200 -40 {lab=vo}
 N -250 -120 -250 -110 {lab=VDD}
@@ -29,9 +29,9 @@ N 200 -40 260 -40 {lab=vo}
 N 160 -40 160 -30 {lab=vo}
 N 160 30 160 70 {lab=#net1}
 N 160 70 170 70 {lab=#net1}
-N 230 70 260 70 {lab=0}
 N -150 60 -150 70 {lab=#net2}
-C {/foss/designs/LDO-sky130/xschem/LDO.sym} 150 -20 0 0 {name=x1}
+N 170 70 260 70 {lab=#net1}
+N 260 140 260 160 {lab=0}
 C {vsource.sym} -250 -60 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
 C {gnd.sym} -250 -10 0 0 {name=l2 lab=0}
 C {vsource.sym} -50 70 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
@@ -44,7 +44,7 @@ value=\{RL\}
 footprint=1206
 device=resistor
 m=1}
-C {gnd.sym} 260 80 0 0 {name=l5 lab=0}
+C {gnd.sym} 260 160 0 0 {name=l5 lab=0}
 C {capa-2.sym} 350 20 0 0 {name=C1
 m=1
 value=\{CL\}
@@ -55,9 +55,11 @@ C {lab_wire.sym} -50 -40 0 0 {name=p1 sig_type=std_logic lab=vi}
 C {lab_wire.sym} 310 -40 0 0 {name=p2 sig_type=std_logic lab=vo}
 C {lab_wire.sym} -50 0 0 0 {name=p3 sig_type=std_logic lab=vref}
 C {isource.sym} 160 0 0 0 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{iload_max\} \{tstart\} \{trise\} \{tfall\} \{twidth\} \{tperiod\})" savecurrent=true}
-C {vsource.sym} 200 70 1 0 {name=Vsense value=0 savecurrent=false}
+C {vsource.sym} 260 110 0 0 {name=Vsense value=0 savecurrent=false}
 C {lab_wire.sym} -50 -120 0 0 {name=p4 sig_type=std_logic lab=VDD}
-C {code_shown.sym} 620 -380 0 0 {name=s1 
+C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
+C {/foss/designs/LDO-sky130/xschem/LDO.sym} 150 -20 0 0 {name=x1}
+C {code_shown.sym} 800 -570 0 0 {name=s3
 only_topleveL=false 
 value="
 
@@ -71,8 +73,8 @@ value="
 .param VDD = 1.8
 .param VREF = 0.6
 .param VIN = '1*VDD'
-.param RL = 24
-.param CL = 0
+.param RL = 12
+.param CL = 1u
 .param tsim = 2m
 * Parámetros para la prueba de carga del LDO
 .param iload_min = 1m
@@ -80,10 +82,10 @@ value="
 .param tstart   = 10u
 .param trise    = 100n
 .param tfall    = 100n
-.param twidth   = 200u
-.param tperiod  = 400u
-.param tperiod  = 400u
-.param tsim = '5*tperiod'
+.param twidth   = 100u
+.param tperiod  = 200u
+
+.param tsim = '3*tperiod'
 
 .param ac_iprobe = 1
 .param ac_vdd = 0 
@@ -92,8 +94,138 @@ value="
 
 
 .control
-let tperiod  = 400u
-let tsim = '5*tperiod'
+let tperiod  = 200u
+let tsim = '3*tperiod'
+
+
+
+
+* 1. Punto de Operación (.OP)
+
+* --- Circuito de Polarización (Referencia) ---
+save all
+
+
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.xM1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+
+
+* Mr1 (pfet_01v8_lvt)
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+
+* Mr (pfet_01v8_lvt)
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+
+* Mp2 (nfet_01v8)
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMp2.msky130_fd_pr__nfet_01v8[vdsat]
+
+* Mc3 (nfet_01v8)
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMc3.msky130_fd_pr__nfet_01v8[vdsat]
+
+
+* --- Etapa Diferencial (Núcleo del OTA) ---
+
+* Mrc1 (pfet_01v8_lvt)
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+
+* Mn (pfet_01v8)
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.x1.xMn.msky130_fd_pr__pfet_01v8[vdsat]
+
+* Mp (pfet_01v8)
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[gm]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[gds]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[id]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[vgs]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[vds]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[vth]
+save @m.x1.x1.xMp.msky130_fd_pr__pfet_01v8[vdsat]
+
+* Mnr (nfet_01v8)
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMnr.msky130_fd_pr__nfet_01v8[vdsat]
+
+* Mpr (nfet_01v8)
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMpr.msky130_fd_pr__nfet_01v8[vdsat]
+
+
+* --- Etapa de Salida ---
+
+* Mrc2 (pfet_01v8_lvt)
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.x1.xMrc2.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+
+* Mo (nfet_01v8)
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMo.msky130_fd_pr__nfet_01v8[vdsat]
+
+
+op
+set filetype=ascii
+write LDO_op.raw
+
+
 
 
 * 2. Análisis Transitorio para overshot y undershot (.TRAN)
@@ -101,16 +233,20 @@ tran 1u $&tsim
 write LDO_tran_picos.raw
 
 * 3. Análisis en Frecuencia  para estabilidad (.AC)
+alterparam ac_iprobe = 1
+alterparam ac_vdd = 0
+reset 
 ac dec 10 1 1G
-* 1. Ganancia de Lazo Abierto T(s) = v(x1.vre) / v(x1.net3)
-let T_loop = v(x1.vre) / v(x1.net3)
-let loop_gain_db = vdb(T_loop)
-let fase_deg = vp(T_loop) * 180 / pi
+* 1. Ganancia de Lazo Abierto T(s) = v(x1.vre) / v(x1.vre2)
+let T_loop = v(x1.vre) / v(x1.vre2)
+let ldb = vdb(T_loop)
+let fase = vp(T_loop) * 180 / pi
+
 write LDO_ac_estability.raw
 
 
 * 5. Analisis en dc sweep para el line regulation 
-dc vin 1.3 2 0.01
+dc vin 1.3 1.74 0.05
 *plot vo
 *plot vi
 write LDO_dc_line.raw
@@ -119,16 +255,16 @@ write LDO_dc_line.raw
 alterparam ac_iprobe = 0
 alterparam ac_vdd = 1
 reset 
-ac dec 10 1 1G
+ac dec 10 10 1G
 * 1. Ganancia de Lazo Abierto T(s) = v(x1.vre) / v(x1.net3)
 let psrr1 = v(vdd)/v(vo) 
 let psrr_db = vdb(psrr1)
 write LDO_ac_psrr.raw
 
 * 4. Análisis en dc sweep para el load regulation
-alterparam RL = 1e9
+alterparam RL = 100
 reset
-dc iload 400u 50m 100u
+dc iload 1m 10m 100u
 *plot vo
 *plot vsense#branch
 write LDO_dc_load.raw
@@ -137,7 +273,7 @@ write LDO_dc_load.raw
 * ANALISIS EN DC PARA EL DROPOUT
 alterparam RL = 24
 reset 
-dc vin1 0 2 0.01
+dc vin1 0 2 0.05
 write LDO_dc_dropout.raw
 
 
@@ -147,13 +283,13 @@ write LDO_dc_dropout.raw
 
 setplot ac1
 * 2. UGB (Frecuencia donde la magnitud cruza 0 dB)
-meas ac ugb WHEN loop_gain_db = 0.0
+meas ac ugb WHEN ldb = 0.0
 * 3. Medir la fase en grados en el punto exacto del UGB
-meas ac fase_ugb FIND fase_deg WHEN loop_gain_db = 0.0
+meas ac fase_ugb FIND fase WHEN ldb = 0.0
 
 * 4. Calcular el Margen de Fase (PM = fase_ugb)
-let margen_fase = fase_ugb
-meas ac ganancia_banda_plana   find loop_gain_db at=1
+let margen_fase = fase
+meas ac ganancia_banda_plana   find ldb at=1
 echo 'margen_fase = $&fase_ugb'
 
 *CALCULOS PARA EL PSRR
@@ -223,87 +359,3 @@ print undershoot_mV overshoot_mV v_estable_ligera v_estable_pesada
 
 "
 }
-C {code_shown.sym} -230 470 0 0 {name=s2 
-only_topleveL=false 
-value="
-
-
-
-
-.control
-
-set filetype=ascii
-
-* 1. Punto de Operación (.OP)
-op
-* PMOS
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[gm]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[gds]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[id]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vgs]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vds]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vth]
-save @m.x1.x1.xMnr.msky130_fd_pr__pfet_01v8[vdsat]
-
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[gm]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[gds]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[id]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vgs]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vds]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vth]
-save @m.x1.x1.xMpr.msky130_fd_pr__pfet_01v8[vdsat]
-
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[gm]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[gds]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[id]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vgs]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vds]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vth]
-save @m.x1.x1.xMo.msky130_fd_pr__pfet_01v8[vdsat]
-
-* NMOS
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMn.msky130_fd_pr__nfet_01v8[vdsat]
-
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMp.msky130_fd_pr__nfet_01v8[vdsat]
-
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMr.msky130_fd_pr__nfet_01v8[vdsat]
-
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMrc1.msky130_fd_pr__nfet_01v8[vdsat]
-
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMc2.msky130_fd_pr__nfet_01v8[vdsat]
-write LDO_op.raw
-
-.endc
-"
-}
-C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}

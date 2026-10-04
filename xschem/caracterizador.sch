@@ -171,6 +171,7 @@ value="
   write caracterizador.raw all
 op
 write caracterizador_op.raw
+plot vsense#branch
 .endc
 
 "
