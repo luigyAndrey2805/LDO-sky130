@@ -19,7 +19,6 @@ rad.json
 #License-files
 *.bclicense
 *.flf
-*.raw
-*.spice
 #Test results file
-TestResults.xml
+TestResults.xml*.raw
+spice_raw_log/

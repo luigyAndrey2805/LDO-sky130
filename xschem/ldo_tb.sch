@@ -73,7 +73,7 @@ value="
 .param VDD = 1.8
 .param VREF = 0.6
 .param VIN = '1*VDD'
-.param RL = 12
+.param RL = 24
 .param CL = 1u
 .param tsim = 2m
 * Parámetros para la prueba de carga del LDO
