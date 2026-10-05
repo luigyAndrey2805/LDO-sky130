@@ -1,37 +1,21 @@
 # ==========================================
-# Archivos Temporales y Respaldos de Xschem
+# Respaldos temporales de Xschem (NO subir)
 # ==========================================
 *.sch~
 *.sym~
 *.bak
 *~
 .#*
-#*#
 
 # ==========================================
-# Resultados y Logs de Simulación (Ngspice)
+# Resultados de simulación pesados (NO subir)
 # ==========================================
 *.raw
 *.log
-*.out
-*.val
-*.ic
-*.sq
 spice_raw_log/
-simulations/
 
 # ==========================================
-# Netlists Generados (si deseas ignorar .spice auto-generados)
+# Archivos temporales de Python / Jupyter
 # ==========================================
-*.spice
-*.net
-
-# Exceptuar si tienes subcircuitos .spice escritos a mano que SÍ quieres subir:
-# !/mi_subcircuito_manual.spice
-
-# ==========================================
-# Entornos de desarrollo / IDEs
-# ==========================================
-.vscode/
-.idea/
-.DS_Store
+.ipynb_checkpoints/
+__pycache__/
