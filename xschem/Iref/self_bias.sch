@@ -118,7 +118,7 @@ model=nfet_01v8
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 260 -20 0 0 {name=Mp4
-W=10
+W=17.8
 L=1
 nf=1
 mult=1
@@ -132,7 +132,7 @@ model=pfet_01v8_lvt
 spiceprefix=X
 }
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 120 -20 0 1 {name=Mp3
-W=10
+W=17.8
 L=1
 nf=1
 mult=1

@@ -12,7 +12,6 @@ N -30 -90 -30 -50 {lab=VDD}
 N -30 -90 90 -90 {lab=VDD}
 N 90 -90 90 -70 {lab=VDD}
 N 140 -20 190 -20 {lab=Vgp}
-C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} -10 -20 0 0 {name=x1}
 C {gnd.sym} 90 100 0 0 {name=l1 lab=0}
 C {vsource.sym} -30 -20 0 1 {name=V1 value="dc \{VDD\} ac 0 PWL(0 0 \{tstart\} 0 \{tstart+trise\} 1.8 \{tstart+2*trise\} 1.8 \{tstart+2*trise+tfall\}  0 \{tstart+2*trise+2*tfall\}  0 \{tstart+3*trise+2*tfall\}  1.8  \{tstart+4*trise+2*tfall\}  1.8 \{tstart+4*trise+3*tfall\}  0 )" savecurrent=fals}
 C {lab_wire.sym} 40 -90 0 0 {name=p1 sig_type=std_logic lab=VDD
@@ -138,3 +137,4 @@ tran $&tstart $&tsim
 
 "
 }
+C {self_bias.sym} -10 -20 0 0 {name=x1}
