@@ -5,22 +5,20 @@ V {}
 S {}
 F {}
 E {}
-N 270 -250 270 -230 {lab=VDD}
 N 350 -180 440 -180 {lab=Vgp}
 N 440 -340 440 -180 {lab=Vgp}
 N 270 -130 270 -100 {lab=VSS}
-N 270 -100 330 -100 {lab=VSS}
+N 270 -50 330 -50 {lab=VSS}
 N 80 -380 410 -380 {lab=VIN}
 N 120 -150 200 -150 {lab=Vref}
 N 80 -150 120 -150 {lab=Vref}
-N 330 -100 580 -100 {lab=VSS}
+N 330 -50 580 -50 {lab=VSS}
 N 580 -140 580 -100 {lab=VSS}
 N 580 -230 580 -200 {lab=Vre}
 N 580 -380 580 -290 {lab=VOUT}
 N 470 -380 580 -380 {lab=VOUT}
 N 580 -380 730 -380 {lab=VOUT}
-N 270 -310 290 -310 {lab=VDD}
-N 420 -100 420 -90 {lab=VSS}
+N 420 -50 420 -40 {lab=VSS}
 N 440 -470 440 -380 {lab=VDD}
 N 520 -260 560 -260 {lab=VSS}
 N 520 -170 560 -170 {lab=VSS}
@@ -30,33 +28,22 @@ N 580 -220 700 -220 {lab=Vre}
 N 700 -280 700 -220 {lab=Vre}
 N 700 -380 700 -340 {lab=VOUT}
 N 730 -380 870 -380 {lab=VOUT}
-N 270 -310 270 -250 {lab=VDD}
 N 150 -270 170 -270 {lab=vre2}
 N 170 -270 170 -210 {lab=vre2}
-N 310 -230 310 -210 {lab=#net1}
-N 290 -310 310 -310 {lab=VDD}
-N 310 -310 310 -290 {lab=VDD}
+N 270 -100 270 -50 {lab=VSS}
+N 580 -100 580 -50 {lab=VSS}
+N 270 -290 270 -230 {lab=VDD}
+N 310 -100 340 -100 {lab=Vgn_bias}
+N 310 -150 310 -100 {lab=Vgn_bias}
+N 390 -150 460 -150 {lab=VDD}
 C {ipin.sym} 80 -380 0 0 {name=p1 lab=VIN}
-C {iopin.sym} 270 -310 2 0 {name=p3 lab=VDD}
+C {iopin.sym} 270 -290 3 0 {name=p3 lab=VDD}
 C {opin.sym} 870 -380 0 0 {name=p2 lab=VOUT}
-C {lab_wire.sym} 330 -100 0 0 {name=p4 sig_type=std_logic lab=VSS}
+C {lab_wire.sym} 510 -50 0 0 {name=p4 sig_type=std_logic lab=VSS}
 C {ipin.sym} 80 -150 0 0 {name=p5 lab=Vref}
 C {lab_wire.sym} 70 -210 0 0 {name=p6 sig_type=std_logic lab=Vre}
-C {sky130_fd_pr/res_iso_pw.sym} 580 -260 0 0 {name=R1
-W=0.35
-L=10.17
-model=res_iso_pw
-spiceprefix=X
-mult=1}
-C {sky130_fd_pr/res_iso_pw.sym} 580 -170 0 0 {name=R2
-W=0.35
-L=10
-model=res_iso_pw
-spiceprefix=X
-mult=1}
 C {lab_wire.sym} 580 -210 0 0 {name=p7 sig_type=std_logic lab=Vre}
-C {iopin.sym} 420 -90 1 0 {name=p8 lab=VSS}
-C {lab_wire.sym} 270 -270 0 0 {name=p9 sig_type=std_logic lab=VDD}
+C {iopin.sym} 420 -40 1 0 {name=p8 lab=VSS}
 C {lab_wire.sym} 440 -470 0 0 {name=p10 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 520 -260 0 0 {name=p11 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 520 -170 0 0 {name=p12 sig_type=std_logic lab=VSS}
@@ -64,19 +51,31 @@ C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=fal
 C {/foss/designs/LDO-sky130/xschem/OTA.sym} 260 -180 0 0 {name=x1}
 C {lab_wire.sym} 150 -270 0 0 {name=p13 sig_type=std_logic lab=vre2}
 C {lab_wire.sym} 440 -270 0 0 {name=p14 sig_type=std_logic lab=Vgp}
-C {sky130_fd_pr/pfet_01v8.sym} 440 -360 3 0 {name=M2
-W=1250
+C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=27 L=25 MF=1 spiceprefix=X}
+C {sky130_fd_pr/pfet_01v8_lvt.sym} 440 -360 3 0 {name=M1
+W=250
 L=0.5
-nf=200
-mult=10
+nf=100
+mult=5
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
 as="expr('int((@nf + 2)/2) * @W / @nf * 0.29')"
 ps="expr('2*int((@nf + 2)/2) * (@W / @nf + 0.29)')"
 nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
 sa=0 sb=0 sd=0
-model=pfet_01v8
+model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=27 L=25 MF=1 spiceprefix=X}
-C {isource.sym} 310 -260 0 0 {name=I0 value=10u}
+C {lab_wire.sym} 310 -100 0 1 {name=p16 sig_type=std_logic lab=Vgn_bias}
+C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 290 -100 0 0 {name=x2}
+C {lab_wire.sym} 440 -150 0 1 {name=p9 sig_type=std_logic lab=VDD}
+C {res.sym} 580 -260 0 0 {name=R8
+value=\{109k*(1+rsh_var)\}
+footprint=1206
+device=resistor
+m=1}
+C {res.sym} 580 -170 0 0 {name=R9
+value=\{109k*(1+rsh_var)\}
+footprint=1206
+device=resistor
+m=1}

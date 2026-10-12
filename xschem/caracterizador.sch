@@ -46,13 +46,22 @@ N 270 110 270 140 {lab=VDD}
 N 270 110 480 110 {lab=VDD}
 N 480 110 480 140 {lab=VDD}
 N 410 170 440 170 {lab=vgn}
+N 80 -60 80 -10 {lab=0}
+N 80 -10 270 -10 {lab=0}
+N 80 -170 80 -120 {lab=VDD}
+N 80 -170 170 -170 {lab=VDD}
+N 80 -90 110 -90 {lab=VDD}
+N 10 -110 10 -90 {lab=#net1}
+N 10 -90 40 -90 {lab=#net1}
+N 10 -170 80 -170 {lab=VDD}
+N 110 -170 110 -90 {lab=VDD}
 C {vsource.sym} 170 -130 0 0 {name=Vgp value=\{vsg\} savecurrent=false}
 C {gnd.sym} 570 -20 0 0 {name=l4 lab=0}
-C {vsource.sym} 570 -70 0 0 {name=Vdd value=1.8 savecurrent=false}
+C {vsource.sym} 570 -70 0 0 {name=Vdd value=0.5 savecurrent=false}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 250 -90 0 0 {name=Mplvt
-L=0.35
-W=200
-nf=10
+L=1
+W=46
+nf=1
 mult=1
 modeL=pfet_01v8_lvt
 spiceprefix=X
@@ -80,8 +89,11 @@ value="
 * 1. Inclusión de libreria de modelos Sky130 PRIMERO
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 
+.option temp=27
+
+
 * Parametros de tension de polarizacion iniciales
-.param vsg = 1.027
+.param vsg = 0.7
 .param vgs = 0.6
 
 * Parametros de dimensiones geometricas (en micrometros um)
@@ -111,6 +123,14 @@ value="
   save @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[vdsat]
   save @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[cgg]
   save @m.xMplvt.msky130_fd_pr__pfet_01v8_lvt[vgs]
+
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[gm]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[gds]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[id]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[vth]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[cgg]
+  save @m.xMplvt1.msky130_fd_pr__pfet_01v8_lvt[vgs]
 
   * --- 2. GUARDAR PARAMETROS PMOS ESTANDAR (xMp) ---
   save @m.xMp.msky130_fd_pr__pfet_01v8[gm]
@@ -200,3 +220,12 @@ C {lab_wire.sym} 420 -170 0 0 {name=p1 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 370 110 0 0 {name=p4 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 160 170 0 0 {name=p5 sig_type=std_logic lab=vgn}
 C {lab_wire.sym} 410 170 0 0 {name=p6 sig_type=std_logic lab=vgn}
+C {sky130_fd_pr/pfet_01v8_lvt.sym} 60 -90 0 0 {name=Mplvt1
+L=1
+W=28
+nf=1
+mult=1
+modeL=pfet_01v8_lvt
+spiceprefix=X
+}
+C {vsource.sym} 10 -140 0 0 {name=Vgp1 value=\{vsg\} savecurrent=false}

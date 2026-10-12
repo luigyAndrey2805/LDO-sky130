@@ -6,8 +6,7 @@ S {}
 F {}
 E {}
 N 260 -90 260 -70 {lab=0}
-N 320 -230 320 -210 {lab=0}
-N 320 -320 320 -290 {lab=vdd}
+N 470 -230 470 -210 {lab=0}
 N 260 -210 260 -190 {lab=vdd}
 N 260 -210 280 -210 {lab=vdd}
 N 280 -320 280 -210 {lab=vdd}
@@ -27,10 +26,17 @@ N 50 -170 80 -170 {lab=vip}
 N 400 90 400 110 {lab=0}
 N 400 0 400 30 {lab=vo}
 N 280 -320 320 -320 {lab=vdd}
+N 470 -320 470 -290 {lab=vdd}
+N 320 -320 470 -320 {lab=vdd}
+N 300 -190 300 -170 {lab=#net2}
+N 380 -280 380 -220 {lab=0}
+N 380 -220 470 -220 {lab=0}
+N 330 -230 330 -190 {lab=#net2}
+N 300 -190 330 -190 {lab=#net2}
 C {/foss/designs/LDO-sky130/xschem/OTA.sym} 250 -140 0 0 {name=x1}
-C {vsource.sym} 320 -260 0 0 {name=V1 value=\{VDD\} savecurrent=false}
+C {vsource.sym} 470 -260 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} 260 -70 0 0 {name=l1 lab=0}
-C {gnd.sym} 320 -210 0 0 {name=l2 lab=0}
+C {gnd.sym} 470 -210 0 0 {name=l2 lab=0}
 C {gnd.sym} 50 0 0 0 {name=l3 lab=0}
 C {vsource.sym} 50 -40 0 0 {name=V2 value=\{VCM\} savecurrent=false}
 C {vsource.sym} 50 -120 0 0 {name=V3 value="ac \{VAC\}" savecurrent=false}
@@ -46,7 +52,8 @@ value="
 
 
 * 1. Inclusión de libreria de modelos Sky130 PRIMERO
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice ss
+.option temp=120
 
 **parametros_ota
 .param VDD = 1.8
@@ -61,42 +68,6 @@ save all
 * PMOS
 * --- Circuito de Polarización (Referencia) ---
 
-* Mr1 (pfet_01v8_lvt)
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[gm]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[gds]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[id]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vgs]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vds]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vth]
-save @m.x1.xMr1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
-
-* Mr (pfet_01v8_lvt)
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[gm]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[gds]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[id]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vgs]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vds]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vth]
-save @m.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vdsat]
-
-* Mp2 (nfet_01v8)
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.xMp2.msky130_fd_pr__nfet_01v8[vdsat]
-
-* Mc3 (nfet_01v8)
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.xMc3.msky130_fd_pr__nfet_01v8[vdsat]
-
 
 * --- Etapa Diferencial (Núcleo del OTA) ---
 
@@ -110,22 +81,22 @@ save @m.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vth]
 save @m.x1.xMrc1.msky130_fd_pr__pfet_01v8_lvt[vdsat]
 
 * Mn (pfet_01v8)
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[gm]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[gds]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[id]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[vgs]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[vds]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[vth]
-save @m.x1.xMn.msky130_fd_pr__pfet_01v8[vdsat]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.xMn.msky130_fd_pr__pfet_01v8_lvt[vdsat]
 
 * Mp (pfet_01v8)
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[gm]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[gds]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[id]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[vgs]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[vds]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[vth]
-save @m.x1.xMp.msky130_fd_pr__pfet_01v8[vdsat]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[gm]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[gds]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[id]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[vgs]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[vds]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[vth]
+save @m.x1.xMp.msky130_fd_pr__pfet_01v8_lvt[vdsat]
 
 * Mnr (nfet_01v8)
 save @m.x1.xMnr.msky130_fd_pr__nfet_01v8[gm]
@@ -189,7 +160,11 @@ meas ac fase_ugb FIND fase_deg WHEN vdb(vo) = 0
 
 * 5. Calcular el Margen de Fase automáticamente
 let margen_fase = 180 + fase_ugb
-print margen_fase
+
+meas ac ganancia_banda_plana   find vdb(vo) at=10
+
+print margen_fase 
+print ac ganancia_banda_plana
 
 * 6. Graficar la magnitud y la fase ya convertida a grados
 plot vdb(vo)
@@ -212,3 +187,4 @@ footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 400 110 0 0 {name=l6 lab=0}
 C {lab_wire.sym} 300 -320 0 0 {name=p4 sig_type=std_logic lab=vdd}
+C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 330 -380 3 1 {name=x2}

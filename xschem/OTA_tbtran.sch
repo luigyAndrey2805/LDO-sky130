@@ -7,22 +7,26 @@ F {}
 E {}
 N 260 -90 260 -70 {lab=0}
 N 320 -230 320 -210 {lab=0}
-N 320 -320 320 -290 {lab=#net1}
-N 260 -210 260 -190 {lab=#net1}
-N 260 -210 280 -210 {lab=#net1}
-N 280 -320 280 -210 {lab=#net1}
+N 320 -320 320 -290 {lab=vdd}
+N 260 -210 260 -190 {lab=vdd}
+N 260 -210 280 -210 {lab=vdd}
+N 280 -320 280 -210 {lab=vdd}
 N 50 -10 50 0 {lab=0}
 N 80 -170 190 -170 {lab=vip}
 N 140 -110 190 -110 {lab=vin}
 N 400 -140 400 -0 {lab=vo}
 N 340 -140 400 -140 {lab=vo}
-N 310 -0 400 0 {lab=vo}
 N 50 -90 50 -70 {lab=vin}
 N 50 -170 50 -150 {lab=vip}
 N 50 -170 80 -170 {lab=vip}
 N 50 -80 140 -80 {lab=vin}
 N 140 -110 140 -80 {lab=vin}
-N 280 -320 320 -320 {lab=#net1}
+N 280 -320 320 -320 {lab=vdd}
+N 300 -110 300 -60 {lab=#net1}
+N 240 -10 250 -10 {lab=0}
+N 240 -80 240 -10 {lab=0}
+N 240 -80 260 -80 {lab=0}
+N 350 -10 370 -10 {lab=vdd}
 C {/foss/designs/LDO-sky130/xschem/OTA.sym} 250 -140 0 0 {name=x1}
 C {vsource.sym} 320 -260 0 0 {name=V1 value=\{VDD\} savecurrent=false}
 C {gnd.sym} 260 -70 0 0 {name=l1 lab=0}
@@ -71,3 +75,6 @@ write OTA_trans.raw all
 C {lab_wire.sym} 110 -170 0 0 {name=p1 sig_type=std_logic lab=vip}
 C {lab_wire.sym} 170 -110 0 0 {name=p2 sig_type=std_logic lab=vin}
 C {lab_wire.sym} 400 -90 0 0 {name=p3 sig_type=std_logic lab=vo}
+C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 300 -110 1 0 {name=x2}
+C {lab_wire.sym} 280 -250 0 0 {name=p4 sig_type=std_logic lab=vdd}
+C {lab_wire.sym} 370 -10 0 0 {name=p5 sig_type=std_logic lab=vdd}
