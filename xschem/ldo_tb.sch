@@ -64,7 +64,7 @@ C {lab_wire.sym} -50 -40 0 0 {name=p1 sig_type=std_logic lab=vi}
 C {lab_wire.sym} 640 -40 0 0 {name=p2 sig_type=std_logic lab=vo}
 C {lab_wire.sym} -50 0 0 0 {name=p3 sig_type=std_logic lab=vref}
 C {isource.sym} 490 40 0 1 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{iload_max\} \{tstart\} \{trise\} \{tfall\} \{twidth\} \{tperiod\})" savecurrent=true}
-C {vsource.sym} 590 110 2 0 {name=Vsense value=0 savecurrent=false}
+C {vsource.sym} 590 110 0 0 {name=Vsense value=0 savecurrent=false}
 C {lab_wire.sym} -50 -120 0 0 {name=p4 sig_type=std_logic lab=VDD}
 C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
 C {/foss/designs/LDO-sky130/xschem/LDO.sym} 150 -20 0 0 {name=x1}
@@ -78,9 +78,9 @@ value="
 
 
 
-.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice ff
+.lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice fs_ll
 .option temp=-40
-.param VDD = 2
+.param VDD = 1.62
 
 .option num_threads=8
 
@@ -98,7 +98,7 @@ value="
 
 .param VREF = 0.6
 .param VIN = '1*VDD'
-.param RL = 240
+.param RL = 240e9
 .param CL = 1u
 .param tsim = 2m
 
@@ -288,7 +288,8 @@ C {code_shown.sym} -820 -560 0 0 {name=s2 only_toplevel=false value="
 
 
 
-
+alterparam RL = 240e9
+reset
 
 *  Punto de Operación (.OP)
 
@@ -314,13 +315,22 @@ save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vds]
 save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vth]
 save @m.x1.x1.xMr.msky130_fd_pr__pfet_01v8_lvt[vdsat]
 
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[gm]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[gds]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[id]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[vgs]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[vds]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[vth]
-save @m.x1.x1.xMpref.msky130_fd_pr__nfet_01v8[vdsat]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.x1.xMnref.msky130_fd_pr__nfet_01v8[vdsat]
+
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[gm]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[gds]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[id]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[vgs]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[vds]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[vth]
+save @m.x1.xMnl.msky130_fd_pr__nfet_01v8[vdsat]
+
 
 
 * --- Etapa Diferencial (Núcleo del OTA) ---

@@ -36,6 +36,13 @@ N 270 -290 270 -230 {lab=VDD}
 N 310 -100 340 -100 {lab=Vgn_bias}
 N 310 -150 310 -100 {lab=Vgn_bias}
 N 390 -150 460 -150 {lab=VDD}
+N 580 -50 830 -50 {lab=VSS}
+N 830 -80 830 -50 {lab=VSS}
+N 830 -110 880 -110 {lab=VSS}
+N 880 -110 880 -50 {lab=VSS}
+N 830 -50 880 -50 {lab=VSS}
+N 830 -380 830 -140 {lab=VOUT}
+N 750 -110 790 -110 {lab=Vgn_bias}
 C {ipin.sym} 80 -380 0 0 {name=p1 lab=VIN}
 C {iopin.sym} 270 -290 3 0 {name=p3 lab=VDD}
 C {opin.sym} 870 -380 0 0 {name=p2 lab=VOUT}
@@ -54,9 +61,9 @@ C {lab_wire.sym} 440 -270 0 0 {name=p14 sig_type=std_logic lab=Vgp}
 C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=27 L=25 MF=1 spiceprefix=X}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 440 -360 3 0 {name=M1
 W=250
-L=0.5
+L=1
 nf=100
-mult=5
+mult=3
 ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
 pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
 as="expr('int((@nf + 2)/2) * @W / @nf * 0.29')"
@@ -69,6 +76,21 @@ spiceprefix=X
 C {lab_wire.sym} 310 -100 0 1 {name=p16 sig_type=std_logic lab=Vgn_bias}
 C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 290 -100 0 0 {name=x2}
 C {lab_wire.sym} 440 -150 0 1 {name=p9 sig_type=std_logic lab=VDD}
+C {sky130_fd_pr/nfet_01v8.sym} 810 -110 0 0 {name=Mnl
+W=20
+L=0.5
+nf=2
+mult=1
+ad="expr('int((@nf + 1)/2) * @W / @nf * 0.29')"
+pd="expr('2*int((@nf + 1)/2) * (@W / @nf + 0.29)')"
+as="expr('int((@nf + 2)/2) * @W / @nf * 0.29')"
+ps="expr('2*int((@nf + 2)/2) * (@W / @nf + 0.29)')"
+nrd="expr('0.29 / @W ')" nrs="expr('0.29 / @W ')"
+sa=0 sb=0 sd=0
+model=nfet_01v8
+spiceprefix=X
+}
+C {lab_wire.sym} 750 -110 0 0 {name=p15 sig_type=std_logic lab=Vgn_bias}
 C {res.sym} 580 -260 0 0 {name=R8
 value=\{109k*(1+rsh_var)\}
 footprint=1206
