@@ -114,12 +114,6 @@ C {iopin.sym} 180 280 1 0 {name=p9 lab=VSS}
 C {lab_wire.sym} 160 80 0 0 {name=p1 sig_type=std_logic lab=VDI}
 C {lab_wire.sym} 170 130 0 0 {name=p10 sig_type=std_logic lab=VR}
 C {lab_wire.sym} -60 70 0 1 {name=p11 sig_type=std_logic lab=VDinv}
-C {sky130_fd_pr/res_iso_pw.sym} 280 170 0 0 {name=R4
-W=0.7
-L=11
-model=res_iso_pw
-spiceprefix=X
-mult=1}
 C {sky130_fd_pr/nfet_01v8.sym} 260 80 0 0 {name=Mn2
 W=20
 L=1
@@ -176,3 +170,9 @@ sa=0 sb=0 sd=0
 model=nfet_01v8
 spiceprefix=X
 }
+C {sky130_fd_pr/res_xhigh_po_0p69.sym} 280 170 0 0 {name=R11
+W=0.69
+L=20.7
+model=res_xhigh_po_0p69
+spiceprefix=X
+ mult=1}
