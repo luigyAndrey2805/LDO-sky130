@@ -1,7 +1,7 @@
-* Extracted by KLayout with SKY130 LVS runset on : 19/10/2026 23:35
+* Extracted by KLayout with SKY130 LVS runset on : 20/10/2026 02:28
 
 * cell self_bias
-* pin VR,vr
+* pin VR
 * pin vdinv
 * pin vdi
 * pin vgp_self
@@ -11,36 +11,36 @@
 * pin vp2
 * pin vp4
 * pin VSS
-.SUBCKT self_bias VR|vr vdinv vdi vgp_self VDD vp3 vp1 vp2 vp4 VSS
+.SUBCKT self_bias VR vdinv vdi vgp_self VDD vp3 vp1 vp2 vp4 VSS
 * device instance $1 r0 *1 4.65,12.665 sky130_fd_pr__pfet_01v8_lvt
-XM$1 VDD VR|vr vp4 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
+XM$1 VDD VR vp4 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
 + AS=150000000000 AD=150000000000 PS=1600000 PD=1600000
 * device instance $2 r0 *1 4.65,11.765 sky130_fd_pr__pfet_01v8_lvt
-XM$2 vp3 VR|vr vp4 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
+XM$2 vp3 VR vp4 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
 + AS=150000000000 AD=150000000000 PS=1600000 PD=1600000
 * device instance $3 r0 *1 4.65,10.865 sky130_fd_pr__pfet_01v8_lvt
-XM$3 vp3 VR|vr vp2 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
+XM$3 vp3 VR vp2 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
 + AS=150000000000 AD=150000000000 PS=1600000 PD=1600000
 * device instance $4 r0 *1 4.65,9.965 sky130_fd_pr__pfet_01v8_lvt
-XM$4 vp1 VR|vr vp2 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
+XM$4 vp1 VR vp2 VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
 + AS=150000000000 AD=150000000000 PS=1600000 PD=1600000
 * device instance $5 r0 *1 4.65,9.085 sky130_fd_pr__pfet_01v8_lvt
-XM$5 vp1 VR|vr vdinv VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
+XM$5 vp1 VR vdinv VDD sky130_fd_pr__pfet_01v8_lvt L=5000000 W=500000
 + AS=150000000000 AD=150000000000 PS=1600000 PD=1600000
 * device instance $6 r0 *1 1.96,3.62 sky130_fd_pr__nfet_01v8
-XM$6 VSS VR|vr vdinv VSS sky130_fd_pr__nfet_01v8 L=1000000 W=20000000
-+ AS=5.2e+12 AD=5.2e+12 PS=26600000 PD=26600000
+XM$6 VSS VR vdinv VSS sky130_fd_pr__nfet_01v8 L=1000000 W=20000000 AS=5.2e+12
++ AD=5.2e+12 PS=26600000 PD=26600000
 * device instance $11 r270 *1 14.02,-0.3 sky130_fd_pr__res_xhigh_po_0p69
-XR$11 VSS VR|vr VSS sky130_fd_pr__res_xhigh_po_0p69 R=60000 L=20700000 W=690000
+XR$11 VSS VR VSS sky130_fd_pr__res_xhigh_po_0p69 R=60000 L=20700000 W=690000
 + A=1.4283e+13 P=42780000
 * device instance $12 m0 *1 12.32,2.48 sky130_fd_pr__nfet_01v8
 XM$12 VSS vdinv vgp_self VSS sky130_fd_pr__nfet_01v8 L=1000000 W=2000000
 + AS=550000000000 AD=550000000000 PS=4100000 PD=4100000
 * device instance $14 m0 *1 19.57,4.01 sky130_fd_pr__nfet_01v8
-XM$14 VR|vr vdi vgp_self VSS sky130_fd_pr__nfet_01v8 L=1000000 W=24000000
+XM$14 VR vdi vgp_self VSS sky130_fd_pr__nfet_01v8 L=1000000 W=24000000
 + AS=6.2e+12 AD=6.2e+12 PS=31100000 PD=31100000
 * device instance $20 r0 *1 10.66,5.11 sky130_fd_pr__nfet_01v8
-XM$20 VSS VR|vr vdi VSS sky130_fd_pr__nfet_01v8 L=1000000 W=5000000 AS=1.3e+12
+XM$20 VSS VR vdi VSS sky130_fd_pr__nfet_01v8 L=1000000 W=5000000 AS=1.3e+12
 + AD=1.3e+12 PS=8600000 PD=8600000
 * device instance $25 r0 *1 10.56,10.49 sky130_fd_pr__pfet_01v8_lvt
 XM$25 VDD vgp_self vdi VDD sky130_fd_pr__pfet_01v8_lvt L=1000000 W=30000000

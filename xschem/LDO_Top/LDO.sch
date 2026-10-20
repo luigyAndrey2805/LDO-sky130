@@ -23,13 +23,11 @@ N 440 -470 440 -380 {lab=VDD}
 N 520 -260 560 -260 {lab=VSS}
 N 520 -170 560 -170 {lab=VSS}
 N 70 -210 100 -210 {lab=Vre}
-N 160 -210 200 -210 {lab=vre2}
+N 160 -210 200 -210 {lab=Vre}
 N 580 -220 700 -220 {lab=Vre}
 N 700 -280 700 -220 {lab=Vre}
 N 700 -380 700 -340 {lab=VOUT}
 N 730 -380 870 -380 {lab=VOUT}
-N 150 -270 170 -270 {lab=vre2}
-N 170 -270 170 -210 {lab=vre2}
 N 270 -100 270 -50 {lab=VSS}
 N 580 -100 580 -50 {lab=VSS}
 N 270 -290 270 -230 {lab=VDD}
@@ -42,6 +40,7 @@ N 810 -380 810 -180 {lab=VOUT}
 N 810 -120 810 -50 {lab=VSS}
 N 770 -150 790 -150 {lab=VSS}
 N 770 -150 770 -50 {lab=VSS}
+N 100 -210 170 -210 {lab=Vre}
 C {ipin.sym} 80 -380 0 0 {name=p1 lab=VIN}
 C {iopin.sym} 270 -290 3 0 {name=p3 lab=VDD}
 C {opin.sym} 870 -380 0 0 {name=p2 lab=VOUT}
@@ -54,7 +53,6 @@ C {lab_wire.sym} 440 -470 0 0 {name=p10 sig_type=std_logic lab=VDD}
 C {lab_wire.sym} 520 -260 0 0 {name=p11 sig_type=std_logic lab=VSS}
 C {lab_wire.sym} 520 -170 0 0 {name=p12 sig_type=std_logic lab=VSS}
 C {/foss/designs/LDO-sky130/xschem/OTA/OTA.sym} 260 -180 0 0 {name=x1}
-C {lab_wire.sym} 150 -270 0 0 {name=p13 sig_type=std_logic lab=vre2}
 C {lab_wire.sym} 440 -270 0 0 {name=p14 sig_type=std_logic lab=Vgp}
 C {sky130_fd_pr/cap_mim_m3_2.sym} 700 -310 0 0 {name=C1 model=cap_mim_m3_2 W=35 L=30 MF=1 spiceprefix=X}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} 440 -360 3 0 {name=M1
@@ -72,7 +70,7 @@ model=pfet_01v8_lvt
 spiceprefix=X
 }
 C {lab_wire.sym} 310 -100 0 1 {name=p16 sig_type=std_logic lab=Vgn_bias}
-C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 290 -100 0 0 {name=x2}
+C {self_bias.sym} 290 -100 0 0 {name=x2}
 C {lab_wire.sym} 440 -150 0 1 {name=p9 sig_type=std_logic lab=VDD}
 C {sky130_fd_pr/res_xhigh_po_0p69.sym} 580 -170 0 0 {name=R11
 W=0.69
@@ -92,4 +90,3 @@ L=4
 model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
-C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=false}

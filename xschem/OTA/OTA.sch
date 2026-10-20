@@ -132,7 +132,7 @@ mult=1
 model=pfet_01v8_lvt
 spiceprefix=X
 }
-C {sky130_fd_pr/cap_mim_m3_2.sym} 90 -170 1 0 {name=C1 model=cap_mim_m3_2 W=44.6 L=56 MF=1 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 90 -170 1 0 {name=C1 model=cap_mim_m3_2 W=35 L=71.36 MF=1 spiceprefix=X}
 C {sky130_fd_pr/pfet_01v8_lvt.sym} -50 -230 0 1 {name=Mp
 L=1
 W=26
