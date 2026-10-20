@@ -70,23 +70,23 @@ model=pfet_01v8_lvt
 spiceprefix=X
 }
 C {lab_wire.sym} 310 -100 0 1 {name=p16 sig_type=std_logic lab=Vgn_bias}
-C {self_bias.sym} 290 -100 0 0 {name=x2}
 C {lab_wire.sym} 440 -150 0 1 {name=p9 sig_type=std_logic lab=VDD}
 C {sky130_fd_pr/res_xhigh_po_0p69.sym} 580 -170 0 0 {name=R11
 W=0.69
-L=37.6
+L=38.08
 model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
 C {sky130_fd_pr/res_xhigh_po_0p69.sym} 580 -260 0 0 {name=R1
 W=0.69
-L=37.6
+L=38.08
 model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
 C {sky130_fd_pr/res_xhigh_po_0p69.sym} 810 -150 0 0 {name=R2
 W=0.69
-L=4
+L=4.12
 model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
+C {/foss/designs/LDO-sky130/xschem/Iref/self_bias.sym} 290 -100 0 0 {name=x2}
