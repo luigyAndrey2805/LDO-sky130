@@ -33,6 +33,7 @@ value="
 * 1. Inclusión de librería de modelos Sky130 PRIMERO y luego el netlist PEX
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/LDO-sky130/xschem/Self_Bias/self_bias_pex.spice
+x1 VDD VR 0 self_bias
 
 .option temp=27
 .option num_threads=8
@@ -158,4 +159,4 @@ print vr_100us vr_1ms vr_100ms
 
 "
 }
-C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} -10 -20 0 0 {name=x1 schematic=ignore}
+C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} -10 -20 0 0 {name=x1 spice_ignore=true schematic=ignore}

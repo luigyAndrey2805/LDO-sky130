@@ -67,7 +67,7 @@ C {isource.sym} 490 40 0 1 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{il
 C {vsource.sym} 590 110 0 0 {name=Vsense value=0 savecurrent=false}
 C {lab_wire.sym} -50 -120 0 0 {name=p4 sig_type=std_logic lab=VDD}
 C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
-C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 150 -20 0 0 {name=x1 lvs_ignore=true}
+C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 150 -20 0 0 {name=x1 spice_ignore=true schematic=ignore}
 C {code_shown.sym} 800 -570 0 0 {name=s1
 only_topleveL=false 
 value="
@@ -84,6 +84,7 @@ value="
 * 1. Inclusión de librería de modelos Sky130 PRIMERO y luego el netlist PEX
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt
 .include /foss/designs/LDO-sky130/xschem/LDO_Top/LDO_pex.spice
+x1 vi voo VDD vref 0 LDO
 
 .option temp=27
 .param VDD = 1.8
