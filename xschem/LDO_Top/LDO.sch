@@ -89,4 +89,4 @@ L=4.12
 model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
-C {/foss/designs/LDO-sky130/xschem/Iref/self_bias.sym} 290 -100 0 0 {name=x2}
+C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} 290 -100 0 0 {name=x2}

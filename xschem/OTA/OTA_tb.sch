@@ -188,4 +188,4 @@ footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 400 110 0 0 {name=l6 lab=0}
 C {lab_wire.sym} 300 -320 0 0 {name=p4 sig_type=std_logic lab=vdd}
-C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 260 -70 0 0 {name=x2}
+C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} 260 -70 0 0 {name=x2}

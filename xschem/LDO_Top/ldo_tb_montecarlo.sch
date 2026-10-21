@@ -72,7 +72,7 @@ value="
 .param VDD = 1.8
 .param VREF = 0.6
 .param VIN = '1*VDD'
-.param RL = 240
+.param RL = 240e9
 .param CL = 1u
 .param tsim = 2m
 
@@ -90,11 +90,29 @@ value="
 .param ac_iprobe = 1
 .param ac_vdd = 0 
 
+
+
+
+* --- Clamp SOLO de simulación (evita soluciones DC falsas de cientos de V) ---
+* Diodo a tierra: conduce si vo baja de -0.2 V
+Dclpn 0 vo dclamp_tb
+* Diodo a una fuente de 5 V: conduce si vo sube de 5.7 V
+Dclpp vo vclp dclamp_tb
+* Fuente de referencia para el clamp superior
+Dclpn2 0 x1.vre dclamp_tb
+Dclpp2 x1.vre vclp dclamp_tb
+Vclp vclp 0 5
+* Modelo del diodo (fuga ~fA, sin capacitancia: no altera AC ni transitorio)
+.model dclamp_tb D(IS=1e-15 N=1)
+
+
+
+
 .control
 * =========================================================
 * CONFIGURACION DEL BUCLE MONTE CARLO
 * =========================================================
-let mc_runs = 100
+let mc_runs = 200
 let run = 1
 
 set appendwrite
@@ -158,7 +176,7 @@ while run <= mc_runs
     * -----------------------------------------------------
     alterparam ac_iprobe = 1
     alterparam ac_vdd = 0
-    alterparam RL = 240
+    alterparam RL = 240e9
     reset 
     alter @Iload[dc] = 10m
     
@@ -181,7 +199,7 @@ while run <= mc_runs
     * -----------------------------------------------------
     alterparam ac_iprobe = 0
     alterparam ac_vdd = 1
-    alterparam RL = 240
+    alterparam RL = 240e9
     reset 
     alter @Iload[dc] = 10m
 
@@ -204,7 +222,7 @@ while run <= mc_runs
     * -----------------------------------------------------
     alterparam ac_iprobe = 0
     alterparam ac_vdd = 0
-    alterparam RL = 240
+    alterparam RL = 240e9
     reset
     
     alter @Vin[pwl] = [ 0 1.4 1m 1.8 ]
@@ -229,7 +247,7 @@ while run <= mc_runs
     reset 
     
     alter @Iload[pwl] = [ 0 1u 1m 5m ]
-    alterparam RL = 240e3
+    alterparam RL = 240e9
     
     tran 1u 1m 
 

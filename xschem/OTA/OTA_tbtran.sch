@@ -76,6 +76,6 @@ write OTA_trans.raw all
 C {lab_wire.sym} 110 -170 0 0 {name=p1 sig_type=std_logic lab=vip}
 C {lab_wire.sym} 170 -110 0 0 {name=p2 sig_type=std_logic lab=vin}
 C {lab_wire.sym} 400 -90 0 0 {name=p3 sig_type=std_logic lab=vo}
-C {/foss/designs/OSCAR/xschem/Iref/self_bias.sym} 300 -110 1 0 {name=x2}
 C {lab_wire.sym} 280 -250 0 0 {name=p4 sig_type=std_logic lab=vdd}
 C {lab_wire.sym} 370 -10 0 0 {name=p5 sig_type=std_logic lab=vdd}
+C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} 300 -110 1 0 {name=x2}
