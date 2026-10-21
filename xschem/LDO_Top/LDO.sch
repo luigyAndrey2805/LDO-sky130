@@ -40,7 +40,6 @@ N 810 -380 810 -180 {lab=VOUT}
 N 810 -120 810 -50 {lab=VSS}
 N 770 -150 790 -150 {lab=VSS}
 N 770 -150 770 -50 {lab=VSS}
-N 100 -210 170 -210 {lab=Vre}
 C {ipin.sym} 80 -380 0 0 {name=p1 lab=VIN}
 C {iopin.sym} 270 -290 3 0 {name=p3 lab=VDD}
 C {opin.sym} 870 -380 0 0 {name=p2 lab=VOUT}
@@ -90,3 +89,4 @@ model=res_xhigh_po_0p69
 spiceprefix=X
  mult=1}
 C {/foss/designs/LDO-sky130/xschem/Self_Bias/self_bias.sym} 290 -100 0 0 {name=x2}
+C {vsource.sym} 130 -210 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=false}

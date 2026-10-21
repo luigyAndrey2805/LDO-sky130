@@ -472,4 +472,3 @@ C {gnd.sym} 160 80 0 0 {name=l8 lab=0}
 C {gnd.sym} 400 80 0 0 {name=l9 lab=0}
 C {lab_wire.sym} 180 -40 0 0 {name=p5 sig_type=std_logic lab=voo}
 C {lab_wire.sym} -150 80 0 0 {name=p6 sig_type=std_logic lab=vii}
-C {vsource.sym} 150 180 1 0 {name=V1 value="0 ac \{ac_iprobe\}" savecurrent=false}
