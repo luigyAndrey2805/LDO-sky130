@@ -5,69 +5,68 @@ V {}
 S {}
 F {}
 E {}
-N -250 -30 -250 -10 {lab=0}
-N -50 100 -50 120 {lab=0}
-N -50 10 -50 40 {lab=vref}
-N -150 150 -150 170 {lab=0}
-N -150 -30 -150 0 {lab=vi}
-N -150 -40 -0 -40 {lab=vi}
-N -150 -40 -150 -30 {lab=vi}
-N -50 0 -50 10 {lab=vref}
-N -50 -0 -0 0 {lab=vref}
-N 70 30 70 60 {lab=0}
-N 70 -120 70 -70 {lab=VDD}
-N -250 -110 -250 -90 {lab=VDD}
-N 590 50 590 80 {lab=#net1}
-N 590 -40 590 -10 {lab=vo}
-N -250 -120 -250 -110 {lab=VDD}
-N -250 -120 70 -120 {lab=VDD}
-N 680 50 680 80 {lab=0}
-N 590 -40 680 -40 {lab=vo}
-N 680 -40 680 -10 {lab=vo}
-N 530 -40 590 -40 {lab=vo}
-N 490 -40 490 -30 {lab=vo}
-N 490 70 500 70 {lab=#net1}
-N 590 140 590 160 {lab=0}
-N 500 70 590 70 {lab=#net1}
-N 260 -40 290 -40 {lab=#net2}
-N 350 -40 400 -40 {lab=vo}
-N 400 -40 400 -20 {lab=vo}
-N 160 40 160 80 {lab=0}
-N 400 40 400 80 {lab=0}
-N 490 -40 530 -40 {lab=vo}
-N 400 -40 490 -40 {lab=vo}
-N 490 -30 490 10 {lab=vo}
-N -150 60 -150 90 {lab=vii}
-N 160 -40 160 -20 {lab=voo}
-N 160 -40 200 -40 {lab=voo}
-N 130 -40 160 -40 {lab=voo}
-C {vsource.sym} -250 -60 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
-C {gnd.sym} -250 -10 0 0 {name=l2 lab=0}
-C {vsource.sym} -50 70 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
-C {gnd.sym} -50 120 0 0 {name=l1 lab=0}
-C {gnd.sym} 70 60 0 0 {name=l3 lab=0}
-C {vsource.sym} -150 120 0 0 {name=Vin value=\{VIN\} savecurrent=false}
-C {gnd.sym} -150 170 0 0 {name=l4 lab=0}
-C {res.sym} 590 20 0 0 {name=R1
-value=\{RL\}
-footprint=1206
-device=resistor
-m=1}
-C {gnd.sym} 590 160 0 0 {name=l5 lab=0}
-C {capa-2.sym} 680 20 0 0 {name=C1
-m=1
-value=\{CL\}
-footprint=1206
-device=polarized_capacitor}
-C {gnd.sym} 680 80 0 0 {name=l6 lab=0}
-C {lab_wire.sym} -50 -40 0 0 {name=p1 sig_type=std_logic lab=vi}
-C {lab_wire.sym} 640 -40 0 0 {name=p2 sig_type=std_logic lab=vo}
-C {lab_wire.sym} -50 0 0 0 {name=p3 sig_type=std_logic lab=vref}
-C {isource.sym} 490 40 0 1 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{iload_max\} \{tstart\} \{trise\} \{tfall\} \{twidth\} \{tperiod\})" savecurrent=true}
-C {vsource.sym} 590 110 0 0 {name=Vsense value=0 savecurrent=false}
-C {lab_wire.sym} -50 -120 0 0 {name=p4 sig_type=std_logic lab=VDD}
-C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
-C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 150 -20 0 0 {name=x1}
+N -550 -180 -550 -160 {lab=0}
+N -30 190 -30 210 {lab=0}
+N -30 100 -30 130 {lab=#net1}
+N -490 80 -490 100 {lab=0}
+N -490 -100 -490 -70 {lab=#net2}
+N -490 -110 -340 -110 {lab=#net2}
+N -490 -110 -490 -100 {lab=#net2}
+N -30 -70 -30 -60 {lab=vref}
+N -30 -70 20 -70 {lab=vref}
+N 110 180 110 210 {lab=0}
+N 90 -190 90 -140 {lab=VDD}
+N -550 -260 -550 -240 {lab=#net3}
+N 610 -20 610 10 {lab=#net4}
+N 610 -110 610 -80 {lab=vo}
+N -550 -270 -550 -260 {lab=#net3}
+N -550 -270 -230 -270 {lab=#net3}
+N 700 70 700 100 {lab=0}
+N 610 -110 700 -110 {lab=vo}
+N 700 -110 700 -80 {lab=vo}
+N 550 -110 610 -110 {lab=vo}
+N 510 -110 510 -100 {lab=vo}
+N 510 0 520 0 {lab=#net4}
+N 610 70 610 90 {lab=0}
+N 520 0 610 0 {lab=#net4}
+N 280 -110 310 -110 {lab=#net5}
+N 370 -110 420 -110 {lab=vo}
+N 420 -110 420 -90 {lab=vo}
+N 180 -30 180 10 {lab=0}
+N 420 -30 420 10 {lab=0}
+N 510 -110 550 -110 {lab=vo}
+N 420 -110 510 -110 {lab=vo}
+N 510 -100 510 -60 {lab=vo}
+N -490 -10 -490 20 {lab=vii}
+N 180 -110 180 -90 {lab=voo}
+N 180 -110 220 -110 {lab=voo}
+N 150 -110 180 -110 {lab=voo}
+N -340 -50 -340 -30 {lab=0}
+N -120 -50 -120 -30 {lab=0}
+N -160 -110 -120 -110 {lab=vi}
+N -250 -110 -220 -110 {lab=#net6}
+N -340 -110 -310 -110 {lab=#net2}
+N -120 -110 20 -110 {lab=vi}
+N -30 10 -30 40 {lab=#net7}
+N -30 -60 -30 -50 {lab=vref}
+N 20 60 20 80 {lab=0}
+N -100 190 -100 210 {lab=0}
+N -100 120 -100 130 {lab=#net1}
+N -100 120 -30 120 {lab=#net1}
+N 20 -70 20 0 {lab=vref}
+N 700 -10 700 10 {lab=#net8}
+N -230 -210 -230 -190 {lab=0}
+N -10 -210 -10 -190 {lab=0}
+N -50 -270 -10 -270 {lab=VDD}
+N -140 -270 -110 -270 {lab=#net9}
+N -230 -270 -200 -270 {lab=#net3}
+N -10 -270 90 -270 {lab=VDD}
+N 90 -270 90 -190 {lab=VDD}
+N 110 90 110 120 {lab=#net10}
+N 110 10 110 30 {lab=#net11}
+N 90 10 110 10 {lab=#net11}
+N 90 -40 90 10 {lab=#net11}
+N 700 -80 700 -70 {lab=vo}
 C {code_shown.sym} 800 -570 0 0 {name=s1
 only_topleveL=false 
 value="
@@ -295,7 +294,7 @@ print dropout_mV vin_do vout_target
 
 "
 }
-C {code_shown.sym} -820 -560 0 0 {name=s2 only_toplevel=false value="
+C {code_shown.sym} -2260 -750 0 0 {name=s2 only_toplevel=false value="
 
 
 
@@ -448,27 +447,135 @@ write LDO_op.raw
 
 
 "}
-C {capa-2.sym} 160 10 0 0 {name=C2
+C {vsource.sym} -550 -210 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
+C {gnd.sym} -550 -160 0 0 {name=l2 lab=0}
+C {vsource.sym} -30 160 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
+C {gnd.sym} -30 210 0 0 {name=l1 lab=0}
+C {gnd.sym} 110 210 0 0 {name=l3 lab=0}
+C {vsource.sym} -490 50 0 0 {name=Vin value=\{VIN\} savecurrent=false}
+C {gnd.sym} -490 100 0 0 {name=l4 lab=0}
+C {res.sym} 610 -50 0 0 {name=R1
+value=\{RL\}
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} 610 90 0 0 {name=l5 lab=0}
+C {capa-2.sym} 700 40 0 0 {name=C1
+m=1
+value=\{CL\}
+footprint=1206
+device=polarized_capacitor}
+C {gnd.sym} 700 100 0 0 {name=l6 lab=0}
+C {lab_wire.sym} -40 -110 0 0 {name=p1 sig_type=std_logic lab=vi}
+C {lab_wire.sym} 660 -110 0 0 {name=p2 sig_type=std_logic lab=vo}
+C {lab_wire.sym} -30 -70 0 0 {name=p3 sig_type=std_logic lab=vref}
+C {isource.sym} 510 -30 0 1 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{iload_max\} \{tstart\} \{trise\} \{tfall\} \{twidth\} \{tperiod\})" savecurrent=true}
+C {vsource.sym} 610 40 0 0 {name=Vsense value=0 savecurrent=false}
+C {lab_wire.sym} 90 -160 0 0 {name=p4 sig_type=std_logic lab=VDD}
+C {vsource.sym} -490 -40 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
+C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 170 -90 0 0 {name=x1 }
+C {capa-2.sym} 180 -60 0 0 {name=C2
 m=1
 value=2p
 footprint=1206
 device=polarized_capacitor}
-C {res.sym} 230 -40 1 0 {name=R2
+C {res.sym} 250 -110 1 0 {name=R2
 value=100m
 footprint=1206
 device=resistor
 m=1}
-C {ind.sym} 320 -40 1 0 {name=L7
+C {ind.sym} 340 -110 1 0 {name=L7
 m=1
 value=5n
 footprint=1206
 device=inductor}
-C {capa-2.sym} 400 10 0 0 {name=C3
+C {capa-2.sym} 420 -60 0 0 {name=C3
 m=1
-value=1p
+value=1.5p
 footprint=1206
 device=polarized_capacitor}
-C {gnd.sym} 160 80 0 0 {name=l8 lab=0}
-C {gnd.sym} 400 80 0 0 {name=l9 lab=0}
-C {lab_wire.sym} 180 -40 0 0 {name=p5 sig_type=std_logic lab=voo}
-C {lab_wire.sym} -150 80 0 0 {name=p6 sig_type=std_logic lab=vii}
+C {gnd.sym} 180 10 0 0 {name=l8 lab=0}
+C {gnd.sym} 420 10 0 0 {name=l9 lab=0}
+C {lab_wire.sym} 200 -110 0 0 {name=p5 sig_type=std_logic lab=voo}
+C {lab_wire.sym} -490 10 0 0 {name=p6 sig_type=std_logic lab=vii}
+C {ind.sym} -190 -110 1 0 {name=L10
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {capa-2.sym} -120 -80 0 0 {name=C4
+m=1
+value=2p
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} -340 -80 0 0 {name=C5
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {res.sym} -280 -110 1 0 {name=R3
+value=100m
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} -120 -30 0 0 {name=l11 lab=0}
+C {gnd.sym} -340 -30 0 0 {name=l12 lab=0}
+C {ind.sym} -30 70 2 0 {name=L13
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {res.sym} -30 -20 2 0 {name=R4
+value=200m
+footprint=1206
+device=resistor
+m=1}
+C {capa-2.sym} 20 30 0 0 {name=C6
+m=1
+value=500f
+footprint=1206
+device=polarized_capacitor}
+C {gnd.sym} 20 80 0 0 {name=l14 lab=0}
+C {capa-2.sym} -100 160 0 0 {name=C7
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {gnd.sym} -100 210 0 0 {name=l15 lab=0}
+C {res.sym} 700 -40 2 0 {name=R5
+value=20m
+footprint=1206
+device=resistor
+m=1}
+C {ind.sym} -80 -270 1 0 {name=L16
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {capa-2.sym} -10 -240 0 0 {name=C8
+m=1
+value=10p
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} -230 -240 0 0 {name=C9
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {res.sym} -170 -270 1 0 {name=R6
+value=5m
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} -10 -190 0 0 {name=l17 lab=0}
+C {gnd.sym} -230 -190 0 0 {name=l18 lab=0}
+C {ind.sym} 110 150 2 0 {name=L19
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {res.sym} 110 60 2 0 {name=R7
+value=5m
+footprint=1206
+device=resistor
+m=1}

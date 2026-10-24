@@ -5,31 +5,31 @@ V {}
 S {}
 F {}
 E {}
-N -250 -30 -250 -10 {lab=0}
-N -50 100 -50 120 {lab=0}
-N -50 10 -50 40 {lab=vref}
-N -150 150 -150 170 {lab=0}
-N -150 -30 -150 0 {lab=vi}
-N -150 -40 -0 -40 {lab=vi}
-N -150 -40 -150 -30 {lab=vi}
+N -570 -110 -570 -90 {lab=0}
+N -50 260 -50 280 {lab=0}
+N -50 170 -50 200 {lab=#net1}
+N -510 150 -510 170 {lab=0}
+N -510 -30 -510 0 {lab=#net2}
+N -510 -40 -360 -40 {lab=#net2}
+N -510 -40 -510 -30 {lab=#net2}
 N -50 0 -50 10 {lab=vref}
-N -50 -0 -0 0 {lab=vref}
-N 70 30 70 60 {lab=0}
+N -50 0 0 0 {lab=vref}
+N 90 250 90 280 {lab=0}
 N 70 -120 70 -70 {lab=VDD}
-N -250 -110 -250 -90 {lab=VDD}
-N 590 50 590 80 {lab=#net1}
+N -570 -190 -570 -170 {lab=#net3}
+N 590 50 590 80 {lab=#net4}
 N 590 -40 590 -10 {lab=vo}
-N -250 -120 -250 -110 {lab=VDD}
-N -250 -120 70 -120 {lab=VDD}
-N 680 50 680 80 {lab=0}
+N -570 -200 -570 -190 {lab=#net3}
+N -570 -200 -250 -200 {lab=#net3}
+N 680 140 680 170 {lab=0}
 N 590 -40 680 -40 {lab=vo}
-N 680 -40 680 -10 {lab=vo}
+N 680 -40 680 0 {lab=vo}
 N 530 -40 590 -40 {lab=vo}
 N 490 -40 490 -30 {lab=vo}
-N 490 70 500 70 {lab=#net1}
+N 490 70 500 70 {lab=#net4}
 N 590 140 590 160 {lab=0}
-N 500 70 590 70 {lab=#net1}
-N 260 -40 290 -40 {lab=#net2}
+N 500 70 590 70 {lab=#net4}
+N 260 -40 290 -40 {lab=#net5}
 N 350 -40 400 -40 {lab=vo}
 N 400 -40 400 -20 {lab=vo}
 N 160 40 160 80 {lab=0}
@@ -37,52 +37,81 @@ N 400 40 400 80 {lab=0}
 N 490 -40 530 -40 {lab=vo}
 N 400 -40 490 -40 {lab=vo}
 N 490 -30 490 10 {lab=vo}
-N -150 60 -150 90 {lab=vii}
+N -510 60 -510 90 {lab=vii}
 N 160 -40 160 -20 {lab=voo}
 N 160 -40 200 -40 {lab=voo}
 N 130 -40 160 -40 {lab=voo}
-C {vsource.sym} -250 -60 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
-C {gnd.sym} -250 -10 0 0 {name=l2 lab=0}
-C {vsource.sym} -50 70 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
-C {gnd.sym} -50 120 0 0 {name=l1 lab=0}
-C {gnd.sym} 70 60 0 0 {name=l3 lab=0}
-C {vsource.sym} -150 120 0 0 {name=Vin value=\{VIN\} savecurrent=false}
-C {gnd.sym} -150 170 0 0 {name=l4 lab=0}
+N -360 20 -360 40 {lab=0}
+N -140 20 -140 40 {lab=0}
+N -180 -40 -140 -40 {lab=vi}
+N -270 -40 -240 -40 {lab=#net6}
+N -360 -40 -330 -40 {lab=#net2}
+N -140 -40 -0 -40 {lab=vi}
+N -50 80 -50 110 {lab=#net7}
+N -50 10 -50 20 {lab=vref}
+N 0 130 0 150 {lab=0}
+N -120 260 -120 280 {lab=0}
+N -120 190 -120 200 {lab=#net1}
+N -120 190 -50 190 {lab=#net1}
+N -0 0 -0 70 {lab=vref}
+N 680 60 680 80 {lab=#net8}
+N -250 -140 -250 -120 {lab=0}
+N -30 -140 -30 -120 {lab=0}
+N -70 -200 -30 -200 {lab=VDD}
+N -160 -200 -130 -200 {lab=#net9}
+N -250 -200 -220 -200 {lab=#net3}
+N -30 -200 70 -200 {lab=VDD}
+N 70 -200 70 -120 {lab=VDD}
+N 90 160 90 190 {lab=#net10}
+N 90 80 90 100 {lab=#net11}
+N 70 80 90 80 {lab=#net11}
+N 70 30 70 80 {lab=#net11}
+C {vsource.sym} -570 -140 0 0 {name=Vsuply value="dc \{VDD\} ac \{ac_vdd\}" savecurrent=false}
+C {gnd.sym} -570 -90 0 0 {name=l2 lab=0}
+C {vsource.sym} -50 230 0 0 {name=Vref value="\{VREF\}" savecurrent=false}
+C {gnd.sym} -50 280 0 0 {name=l1 lab=0}
+C {gnd.sym} 90 280 0 0 {name=l3 lab=0}
+C {vsource.sym} -510 120 0 0 {name=Vin value=\{VIN\} savecurrent=false}
+C {gnd.sym} -510 170 0 0 {name=l4 lab=0}
 C {res.sym} 590 20 0 0 {name=R1
 value=\{RL\}
 footprint=1206
 device=resistor
 m=1}
 C {gnd.sym} 590 160 0 0 {name=l5 lab=0}
-C {capa-2.sym} 680 20 0 0 {name=C1
+C {capa-2.sym} 680 110 0 0 {name=C1
 m=1
 value=\{CL\}
 footprint=1206
 device=polarized_capacitor}
-C {gnd.sym} 680 80 0 0 {name=l6 lab=0}
-C {lab_wire.sym} -50 -40 0 0 {name=p1 sig_type=std_logic lab=vi}
+C {gnd.sym} 680 170 0 0 {name=l6 lab=0}
+C {lab_wire.sym} -60 -40 0 0 {name=p1 sig_type=std_logic lab=vi}
 C {lab_wire.sym} 640 -40 0 0 {name=p2 sig_type=std_logic lab=vo}
 C {lab_wire.sym} -50 0 0 0 {name=p3 sig_type=std_logic lab=vref}
 C {isource.sym} 490 40 0 1 {name=Iload value="dc 0 ac 0 PULSE(\{iload_min\} \{iload_max\} \{tstart\} \{trise\} \{tfall\} \{twidth\} \{tperiod\})" savecurrent=true}
 C {vsource.sym} 590 110 0 0 {name=Vsense value=0 savecurrent=false}
-C {lab_wire.sym} -50 -120 0 0 {name=p4 sig_type=std_logic lab=VDD}
-C {vsource.sym} -150 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
-C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 150 -20 0 0 {name=x1 lvs_ignore=true}
+C {lab_wire.sym} 70 -90 0 0 {name=p4 sig_type=std_logic lab=VDD}
+C {vsource.sym} -510 30 2 0 {name=Vin1 value="dc 0 ac 0 " savecurrent=false}
+C {/foss/designs/LDO-sky130/xschem/LDO_Top/LDO.sym} 150 -20 0 0 {name=x1 spice_ignore=true schematic=ignore}
 C {code_shown.sym} 800 -570 0 0 {name=s1
 only_topleveL=false 
 value="
 * ==============================================================================
-* ENCABEZADO DEL ARCHIVO:
-* Script de simulación Monte Carlo Post-Layout (PEX) para el regulador LDO
-* completo (incluyendo LDO_pex.spice).
-* Evalúa Transitorio (Overshoot/Undershoot), PSRR, Line Regulation,
-* Load Regulation y Dropout en cada iteración y guarda en 'datos_mc.txt'
-* con el formato exacto que lee el notebook 'LDO_tb_montecarlo.ipynb'.
+* ENCABEZADO DEL ARCHIVO (ldo_tb_pex_montecarlo.sch):
+* Descripción:
+*   Banco de pruebas Monte Carlo Post-Layout (PEX) para el regulador LDO
+*   completo (incluyendo LDO_pex.spice), incorporando los modelos parásitos de
+*   inductancia, resistencia y capacitancia de línea/empaquetado en todos los
+*   pines (VIN, VOUT, VDD, Vref, VSS) y la ESR del capacitor de salida.
+*   Evalúa Overshoot/Undershoot, PSRR, Line Regulation, Load Regulation y
+*   Dropout en cada iteración y guarda en 'datos_mc.txt' con el formato exacto
+*   que lee el notebook 'LDO_tb_montecarlo.ipynb'.
 * ==============================================================================
 
 * 1. Librería de modelos Sky130 con Mismatch (tt_mm) y netlist PEX del LDO
 .lib /foss/pdks/sky130A/libs.tech/ngspice/sky130.lib.spice tt_mm
 .include /foss/designs/LDO-sky130/xschem/LDO_Top/LDO_pex.spice
+x1 vi voo VDD vref net11 LDO
 
 .option temp=27
 .option num_threads=8
@@ -101,14 +130,14 @@ value="
 .nodeset V(x1.self_bias_0.VR)=0.6
 .nodeset V(x1.self_bias_0.vgp_self)=1.0
 
-* Parámetros del LDO
+* Parámetros nominales del LDO
 .param VDD = 1.8
 .param VREF = 0.6
 .param VIN = '1*VDD-0.3'
 .param RL = 240e9
 .param CL = 1u
 
-* Parámetros para la prueba transitoria de carga
+* Parámetros para la prueba transitoria de carga (Overshoot / Undershoot)
 .param iload_min = 1u
 .param iload_max = 5m
 .param tstart   = 30u
@@ -116,7 +145,7 @@ value="
 .param tfall    = 100n
 .param twidth   = 100u
 .param tperiod  = 200u
-.param tsim     = '3*tperiod'
+.param tsim     = '2*tperiod'
 
 .param ac_iprobe = 0
 .param ac_vdd    = 0
@@ -140,12 +169,12 @@ set appendwrite
 set filetype=ascii
 
 let tperiod = 200u
-let tsim = '3*tperiod'
+let tsim = 2 * tperiod
 
 echo === INICIO MONTE CARLO PEX === > datos_mc.txt
 
 * =========================================================
-* INICIO DEL BUCLE
+* INICIO DEL BUCLE MONTE CARLO PEX
 * =========================================================
 while run <= mc_runs
 
@@ -154,20 +183,19 @@ while run <= mc_runs
     echo ======================================
     echo --- ITERACION: $&run --- >> datos_mc.txt
 
-    * 1. Tirar los dados estadísticos UNA VEZ para esta muestra (chip)
-    reset
-    set mc_strict = 1
+    * En la iteración 1 el circuito ya fue cargado con su primera semilla;
+    * a partir de la iteración 2 hacemos UN SOLO 'reset' por chip para
+    * sortear nuevos parámetros estadísticos (agauss) y restaurar las fuentes.
+    if run > 1
+        reset
+    end
+
+    save v(vo) v(vi) v(vdd)
 
     * -----------------------------------------------------
     * A. TRANSIENTE (Overshoot y Undershoot)
     * -----------------------------------------------------
-    alterparam ac_iprobe = 0
-    alterparam ac_vdd = 0
-    alterparam RL = 240e9
-    reset
-    save v(vo) v(vi) v(vdd)
-
-    tran 2u $&tsim
+    tran 5u $&tsim
 
     let t_ignorar = 150u
     meas tran v_estable_ligera FIND v(vo) AT=270u
@@ -186,12 +214,9 @@ while run <= mc_runs
     * -----------------------------------------------------
     * B. AC (PSRR)
     * -----------------------------------------------------
-    alterparam ac_iprobe = 0
-    alterparam ac_vdd = 1
-    alterparam RL = 240e9
-    reset
-    save v(vdd) v(vo)
-    alter @Iload[dc] = 5m
+    * Usamos 'alter' en lugar de 'alterparam + reset' para no recargar
+    * el netlist PEX ni cambiar la semilla aleatoria del chip actual.
+    alter @Vsuply[acmag] = 1
 
     ac dec 10 10 1G
     let psrr1 = v(vdd)/v(vo)
@@ -207,19 +232,15 @@ while run <= mc_runs
     echo 'psrr_10k = $&gananciaPSRR_10k' >> datos_mc.txt
     echo 'psrr_1M = $&gananciaPSRR_1M' >> datos_mc.txt
 
+    alter @Vsuply[acmag] = 0
+
     * -----------------------------------------------------
     * C. TRANSIENTE (Line Regulation)
     * -----------------------------------------------------
-    alterparam ac_iprobe = 0
-    alterparam ac_vdd = 0
-    alterparam RL = 240e9
-    reset
-    save v(vo) v(vi)
-
     alter @Vin[pwl] = [ 0 1.4 1m 1.8 ]
     alter @Iload[pwl] = [ 0 1u 1m 1u ]
 
-    tran 2u 1m
+    tran 20u 1m
 
     let t_line_ini = 40u
     let t_line_fin = 950u
@@ -235,13 +256,10 @@ while run <= mc_runs
     * -----------------------------------------------------
     * D. TRANSIENTE (Load Regulation)
     * -----------------------------------------------------
-    alterparam RL = 240e9
-    reset
-    save v(vo)
-
+    alter @Vin[pwl] = [ 0 1.5 1m 1.5 ]
     alter @Iload[pwl] = [ 0 1u 1m 5m ]
 
-    tran 2u 1m
+    tran 20u 1m
 
     meas tran vout_light FIND v(vo) AT=40u
     meas tran vout_heavy FIND v(vo) AT=1m
@@ -253,14 +271,11 @@ while run <= mc_runs
     * -----------------------------------------------------
     * E. TRANSIENTE (Dropout)
     * -----------------------------------------------------
-    alterparam RL = 240
-    reset
-    save v(vo) v(vi)
-
+    alter r1 = 240
     alter @Vin[pwl] = [ 0 2 1m 0 ]
     alter @Iload[pwl] = [ 0 1u 1m 1u ]
 
-
+    tran 20u 1m
 
     meas tran vout_nom FIND v(vo) AT=225u
     let vout_target = vout_nom * 0.90
@@ -271,11 +286,9 @@ while run <= mc_runs
     echo 'dropout_mV = $&dropout_mV' >> datos_mc.txt
 
     * -----------------------------------------------------
-    * Desbloquear la semilla y liberar memoria RAM para la siguiente iteración
+    * Liberar los vectores de memoria RAM al terminar la iteración
     * -----------------------------------------------------
-    unset mc_strict
-    plot tran2.vo
-    destroy tran1 ac1 tran2 tran3 tran4
+    destroy all
 
     let run = run + 1
     
@@ -305,10 +318,91 @@ footprint=1206
 device=inductor}
 C {capa-2.sym} 400 10 0 0 {name=C3
 m=1
-value=1p
+value=1.5p
 footprint=1206
 device=polarized_capacitor}
 C {gnd.sym} 160 80 0 0 {name=l8 lab=0}
 C {gnd.sym} 400 80 0 0 {name=l9 lab=0}
 C {lab_wire.sym} 180 -40 0 0 {name=p5 sig_type=std_logic lab=voo}
-C {lab_wire.sym} -150 80 0 0 {name=p6 sig_type=std_logic lab=vii}
+C {lab_wire.sym} -510 80 0 0 {name=p6 sig_type=std_logic lab=vii}
+C {ind.sym} -210 -40 1 0 {name=L10
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {capa-2.sym} -140 -10 0 0 {name=C4
+m=1
+value=2p
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} -360 -10 0 0 {name=C5
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {res.sym} -300 -40 1 0 {name=R3
+value=100m
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} -140 40 0 0 {name=l11 lab=0}
+C {gnd.sym} -360 40 0 0 {name=l12 lab=0}
+C {ind.sym} -50 140 2 0 {name=L13
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {res.sym} -50 50 2 0 {name=R4
+value=200m
+footprint=1206
+device=resistor
+m=1}
+C {capa-2.sym} 0 100 0 0 {name=C6
+m=1
+value=500f
+footprint=1206
+device=polarized_capacitor}
+C {gnd.sym} 0 150 0 0 {name=l14 lab=0}
+C {capa-2.sym} -120 230 0 0 {name=C7
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {gnd.sym} -120 280 0 0 {name=l15 lab=0}
+C {res.sym} 680 30 2 0 {name=R5
+value=20m
+footprint=1206
+device=resistor
+m=1}
+C {ind.sym} -100 -200 1 0 {name=L16
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {capa-2.sym} -30 -170 0 0 {name=C8
+m=1
+value=10p
+footprint=1206
+device=polarized_capacitor}
+C {capa-2.sym} -250 -170 0 0 {name=C9
+m=1
+value=1.5p
+footprint=1206
+device=polarized_capacitor}
+C {res.sym} -190 -200 1 0 {name=R6
+value=5m
+footprint=1206
+device=resistor
+m=1}
+C {gnd.sym} -30 -120 0 0 {name=l17 lab=0}
+C {gnd.sym} -250 -120 0 0 {name=l18 lab=0}
+C {ind.sym} 90 220 2 0 {name=L19
+m=1
+value=5n
+footprint=1206
+device=inductor}
+C {res.sym} 90 130 2 0 {name=R7
+value=5m
+footprint=1206
+device=resistor
+m=1}
